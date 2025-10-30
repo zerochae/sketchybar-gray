@@ -49,8 +49,8 @@ pnpm run build:install
 오류가 발생하면:
 
 ```bash
-mkdir -p ~/.config/sketchybar/fonts
-cp dist/icon_map.sh ~/.config/sketchybar/fonts/
+mkdir -p ~/.config/sketchybar/icons
+cp dist/icon_map.sh ~/.config/sketchybar/icons/apps.sh
 cp dist/sketchybar-app-font.ttf ~/Library/Fonts/
 ```
 
@@ -108,6 +108,40 @@ export SBAR_WIDGETS_RIGHT=(
 
 ```bash
 export SBAR_WEATHER_LOCATION="Seoul"  # 원하는 도시로 변경
+```
+
+## Directory Structure
+
+```
+~/.config/sketchybar/
+├── sketchybarrc           # 메인 설정 파일 (환경변수)
+├── loader.sh              # 위젯 로더
+├── README.md              # 문서
+├── icons/
+│   ├── apps.sh            # 앱 아이콘 매핑 (sketchybar-app-font)
+│   └── system.json        # 시스템 아이콘 (Nerd Fonts)
+├── items/                 # 위젯 아이템 정의
+│   ├── space.sh
+│   ├── front_app.sh
+│   ├── clock.sh
+│   ├── weather.sh
+│   ├── cpu.sh
+│   ├── ram.sh
+│   ├── disk.sh
+│   ├── battery.sh
+│   ├── volume.sh
+│   ├── caffeinate.sh
+│   └── netstat.sh
+├── plugins/               # 위젯 스크립트
+│   ├── helpers.sh         # 유틸리티 함수
+│   ├── app_icon.sh        # 아이콘 헬퍼
+│   ├── front_app.sh
+│   ├── space.sh
+│   ├── yabai.sh          # yabai 통합
+│   ├── mission_control.sh # mission control 대안
+│   └── ...
+└── tokens/
+    └── colors.sh          # 색상 정의
 ```
 
 ## Troubleshooting
