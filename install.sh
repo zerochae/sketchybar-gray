@@ -37,15 +37,15 @@ echo "📥 설정 파일 다운로드 중..."
 git clone "$REPO_URL" "$CONFIG_DIR"
 
 echo "🎨 sketchybar-app-font 설치 중..."
+if ! command -v pnpm &> /dev/null; then
+    echo "📦 pnpm 설치 중..."
+    brew install pnpm
+fi
+
 TEMP_DIR=$(mktemp -d)
 cd "$TEMP_DIR"
 git clone https://github.com/kvndrsslr/sketchybar-app-font.git
 cd sketchybar-app-font
-
-if ! command -v pnpm &> /dev/null; then
-    echo "📦 pnpm 설치 중..."
-    npm install -g pnpm
-fi
 
 pnpm install
 pnpm run build:install 2>&1 || {
