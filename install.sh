@@ -27,7 +27,7 @@ echo ""
 
 echo "[2/6] yabai 설치 확인..."
 echo "----------------------------------------"
-read -p "yabai를 설치하시겠습니까? (Space 기능 활성화) [y/N]: " -n 1 -r
+read -p "yabai를 설치하시겠습니까? (Space 기능 활성화) [y/N]: " -n 1 -r REPLY < /dev/tty
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     brew install koekeishiya/formulae/yabai
