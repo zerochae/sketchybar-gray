@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_URL="https://github.com/YOUR_USERNAME/sketchybar-config"
+REPO_URL="https://github.com/zerochae/sketchybar-gray"
 CONFIG_DIR="$HOME/.config/sketchybar"
 
 echo "🚀 Sketchybar 설정 설치 시작..."

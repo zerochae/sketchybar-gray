@@ -16,7 +16,7 @@ cd ~/.config/sketchybar
 다른 컴퓨터에서 빠르게 설치하거나 dotfiles로 관리하는 경우:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/sketchybar-config/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/install.sh | bash
 ```
 
 ### Option 3: 수동 설치
