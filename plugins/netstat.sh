@@ -2,6 +2,22 @@
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
+LOCK_DIR="/tmp/sketchybar_netstat.lock"
+
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+  exit 0
+fi
+
+cleanup() {
+  if [ -n "$netstat_pid" ]; then
+    kill "$netstat_pid" 2>/dev/null
+    wait "$netstat_pid" 2>/dev/null
+  fi
+  rmdir "$LOCK_DIR" 2>/dev/null
+}
+
+trap cleanup EXIT
+
 get_speed_bar() {
   local speed=$1
   local direction=$2
@@ -46,9 +62,17 @@ tmp_file="/tmp/sketchybar_netstat.out"
 
 netstat -w1 > "$tmp_file" 2>&1 &
 netstat_pid=$!
+
 sleep 1.5
-kill $netstat_pid 2>/dev/null
-wait $netstat_pid 2>/dev/null
+
+if kill -0 "$netstat_pid" 2>/dev/null; then
+  kill "$netstat_pid" 2>/dev/null
+  sleep 0.1
+  if kill -0 "$netstat_pid" 2>/dev/null; then
+    kill -9 "$netstat_pid" 2>/dev/null
+  fi
+fi
+wait "$netstat_pid" 2>/dev/null
 
 netstat_output=$(grep '[0-9]' "$tmp_file" | tail -1)
 
