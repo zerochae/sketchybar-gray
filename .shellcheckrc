@@ -1,0 +1,11 @@
+# Disable SC1091: Not following sourced files
+disable=SC1091
+
+# Disable SC2034: Unused variables (많은 export 변수들이 다른 파일에서 사용됨)
+disable=SC2034
+
+# Disable SC1090: Can't follow non-constant source
+disable=SC1090
+
+# Disable SC2206: Word splitting is intentional for subscribe events
+disable=SC2206

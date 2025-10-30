@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+
+# ---------- assets, env ----------
+SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
+SBAR_ITEM_DIR="$CONFIG_DIR/items"
+source "$CONFIG_DIR/tokens/colors.sh"
+
+# ========== Fonts ==========
+export SBAR_FONT_FAMILY="SpaceMono Nerd Font Mono"
+export SBAR_FONT_FACE_REGULAR="${SBAR_FONT_FAMILY}:Regular"
+export SBAR_FONT_FACE_BOLD="${SBAR_FONT_FAMILY}:Bold"
+
+export SBAR_ICON_FONT_SIZE="18.0"
+export SBAR_LABEL_FONT_SIZE="12.0"
+
+# ========== Bar Settings ==========
+export SBAR_BAR_HEIGHT=56
+export SBAR_BAR_POSITION="top"
+export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
+
+# ========== Default Colors ==========
+export SBAR_DEFAULT_ICON_COLOR="$COLOR_WHITE"
+export SBAR_DEFAULT_LABEL_COLOR="$COLOR_WHITE"
+
+# ========== Item Settings ==========
+export SBAR_ITEM_BG_HEIGHT=24
+export SBAR_ITEM_BG_CORNER_RADIUS=4
+export SBAR_ITEM_BG_BORDER_WIDTH=1
+
+export SBAR_ITEM_ICON_PADDING_LEFT=8
+export SBAR_ITEM_ICON_PADDING_RIGHT=4
+export SBAR_ITEM_LABEL_PADDING_LEFT=0
+export SBAR_ITEM_LABEL_PADDING_RIGHT=8
+
+export SBAR_ITEM_UPDATE_FREQ_DEFAULT=10
+export SBAR_ITEM_UPDATE_FREQ_FAST=2
+export SBAR_ITEM_UPDATE_FREQ_SLOW=30
+
+# ========== Widget Colors ==========
+export SBAR_COLOR_CLOCK="$COLOR_YELLOW1"
+export SBAR_COLOR_WEATHER="$COLOR_CYAN1"
+export SBAR_COLOR_CAFFEINATE="$COLOR_GREEN2"
+export SBAR_COLOR_VOLUME="$COLOR_BLUE2"
+export SBAR_COLOR_BATTERY="$COLOR_ORANGE1"
+export SBAR_COLOR_DISK="$COLOR_RED1"
+export SBAR_COLOR_RAM="$COLOR_MAGENTA1"
+export SBAR_COLOR_CPU="$COLOR_BLUE1"
+export SBAR_COLOR_NETSTAT="$COLOR_TANGERINE1"
+export SBAR_COLOR_FRONT_APP="$COLOR_GREEN1"
+export SBAR_COLOR_SPACE="$COLOR_BG2_75"
+export SBAR_COLOR_SPACE_BORDER="$COLOR_GREEN3"
+
+# ========== Widget List ==========
+export SBAR_WIDGETS_LEFT=(
+  "space"
+)
+
+export SBAR_WIDGETS_CENTER=(
+  "front_app"
+)
+
+export SBAR_WIDGETS_RIGHT=(
+  "clock"
+  "weather"
+  "caffeinate"
+  "volume"
+  "battery"
+  "disk"
+  "ram"
+  "cpu"
+  "netstat"
+)
+
+export SBAR_AUTO_INSERT_SPACER=true
+
+# ========== Display Options ==========
+export SBAR_NETSTAT_SHOW_GRAPH=true
+export SBAR_NETSTAT_SHOW_SPEED=false
+
+# ---------- default & bar ----------
+sketchybar \
+  --default \
+  icon.font="$SBAR_FONT_FACE_REGULAR:$SBAR_ICON_FONT_SIZE" \
+  label.font="$SBAR_FONT_FACE_REGULAR:$SBAR_LABEL_FONT_SIZE" \
+  icon.color="$SBAR_DEFAULT_ICON_COLOR" \
+  label.color="$SBAR_DEFAULT_LABEL_COLOR" \
+  --bar \
+  position="$SBAR_BAR_POSITION" \
+  height="$SBAR_BAR_HEIGHT" \
+  color="$SBAR_BAR_COLOR"
+
+# ---------- load widgets ----------
+source "$CONFIG_DIR/loader.sh"
+
+load_widgets SBAR_WIDGETS_LEFT
+load_widgets SBAR_WIDGETS_CENTER
+load_widgets SBAR_WIDGETS_RIGHT
+
+# ---------- update ----------
+sketchybar --update
+
+# ---------- wake from sleep ----------
+sketchybar --add event system_woke \
+  --add item system_woke left \
+  --set system_woke \
+  drawing=off \
+  script="$SBAR_PLUGIN_DIR/system_woke.sh" \
+  --subscribe system_woke system_woke
