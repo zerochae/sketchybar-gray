@@ -12,22 +12,42 @@ echo "=========================================="
 echo ""
 
 if ! command -v brew &> /dev/null; then
-    echo "[ERROR] Homebrew가 설치되어 있지 않습니다."
+    echo "[ERROR] Homebrew is not installed."
     echo ""
-    echo "다음 명령으로 Homebrew를 먼저 설치하세요:"
+    echo "Please install Homebrew first:"
     echo "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
     exit 1
 fi
 
-echo "[1/6] 필수 패키지 설치 중..."
+echo "The following dependencies will be installed:"
+echo ""
+echo "  Required:"
+echo "    - sketchybar"
+echo "    - jq"
+echo "    - pnpm"
+echo "    - font-space-mono-nerd-font"
+echo "    - sketchybar-app-font (from GitHub)"
+echo ""
+echo "  Optional:"
+echo "    - yabai (window manager for workspace features)"
+echo ""
+read -p "Continue with installation? [Y/n]: " -n 1 -r REPLY < /dev/tty
+echo ""
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo "Installation cancelled."
+    exit 0
+fi
+echo ""
+
+echo "[1/6] Installing required packages..."
 echo "----------------------------------------"
 brew install sketchybar jq 2>&1 | grep -v "already installed" || true
 brew install --cask font-space-mono-nerd-font 2>&1 | grep -v "already installed" || true
 echo ""
 
-echo "[2/6] yabai 설치 확인..."
+echo "[2/6] Installing yabai (optional)..."
 echo "----------------------------------------"
-read -p "yabai를 설치하시겠습니까? (Space 기능 활성화) [y/N]: " -n 1 -r REPLY < /dev/tty
+read -p "Install yabai? (enables workspace features) [y/N]: " -n 1 -r REPLY < /dev/tty
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     brew install koekeishiya/formulae/yabai
@@ -35,59 +55,59 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 echo ""
 
-echo "[3/6] 설정 파일 다운로드..."
+echo "[3/6] Downloading configuration files..."
 echo "----------------------------------------"
 if [ -d "$CONFIG_DIR" ]; then
     BACKUP_DIR="${CONFIG_DIR}.backup.$(date +%Y%m%d_%H%M%S)"
-    echo "기존 설정 백업: $BACKUP_DIR"
+    echo "Backing up existing config: $BACKUP_DIR"
     mv "$CONFIG_DIR" "$BACKUP_DIR"
 fi
 git clone "$REPO_URL" "$CONFIG_DIR"
 echo ""
 
-echo "[4/6] sketchybar-app-font 설치..."
+echo "[4/6] Installing sketchybar-app-font..."
 echo "----------------------------------------"
 if ! command -v pnpm &> /dev/null; then
-    echo "pnpm 설치 중..."
+    echo "Installing pnpm..."
     brew install pnpm
 fi
 
 TEMP_DIR=$(mktemp -d)
 cd "$TEMP_DIR"
-git clone https://github.com/kvndrsslr/sketchybar-app-font.git
+git clone https://github.com/kvndrsslr/sketchybar-app-font.git > /dev/null 2>&1
 cd sketchybar-app-font
 
-pnpm install
-pnpm run build:install 2>&1 || {
-    echo "자동 설치 실패, 수동으로 설치 중..."
-    mkdir -p "$CONFIG_DIR/icons"
-    cp dist/icon_map.sh "$CONFIG_DIR/icons/apps.sh"
-    cp dist/sketchybar-app-font.ttf "$HOME/Library/Fonts/"
-}
+pnpm install > /dev/null 2>&1
+pnpm run build:install > /dev/null 2>&1
+
+mkdir -p "$CONFIG_DIR/icons"
+cp dist/icon_map.sh "$CONFIG_DIR/icons/apps.sh"
+cp dist/sketchybar-app-font.ttf "$HOME/Library/Fonts/"
+echo "Done"
 
 cd ~
 rm -rf "$TEMP_DIR"
 echo ""
 
-echo "[5/6] 폰트 캐시 새로고침..."
+echo "[5/6] Refreshing font cache..."
 echo "----------------------------------------"
 fc-cache -f -v > /dev/null 2>&1
-echo "완료"
+echo "Done"
 echo ""
 
-echo "[6/6] Sketchybar 시작..."
+echo "[6/6] Starting Sketchybar..."
 echo "----------------------------------------"
 brew services restart sketchybar
 echo ""
 
 echo "=========================================="
-echo "  설치 완료!"
+echo "  Installation Complete!"
 echo "=========================================="
 echo ""
-echo "커스터마이징:"
-echo "  - 설정 파일: $CONFIG_DIR/sketchybarrc"
-echo "  - 날씨 위치: SBAR_WEATHER_LOCATION"
-echo "  - 아이콘 크기: SBAR_APP_ICON_FONT_SIZE"
+echo "Customization:"
+echo "  - Config file: $CONFIG_DIR/sketchybarrc"
+echo "  - Weather location: SBAR_WEATHER_LOCATION"
+echo "  - Icon size: SBAR_APP_ICON_FONT_SIZE"
 echo ""
-echo "자세한 내용: $CONFIG_DIR/README.md"
+echo "Documentation: $CONFIG_DIR/README.md"
 echo ""

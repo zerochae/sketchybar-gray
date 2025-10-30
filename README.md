@@ -1,59 +1,65 @@
 # Sketchybar Configuration
 
-macOS 상단 바를 커스터마이징하는 설정입니다. 앱 아이콘, 시스템 상태, 날씨 등을 표시합니다.
+A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
+
+## Dependencies
+
+### Required
+- [Homebrew](https://brew.sh/) - Package manager for macOS
+- [sketchybar](https://github.com/FelixKratz/SketchyBar) - Customizable status bar
+- [jq](https://stedolan.github.io/jq/) - JSON processor
+- [pnpm](https://pnpm.io/) - Package manager
+- [Space Mono Nerd Font](https://www.nerdfonts.com/) - Font with icons
+- [sketchybar-app-font](https://github.com/kvndrsslr/sketchybar-app-font) - App icon font
+
+### Optional
+- [yabai](https://github.com/koekeishiya/yabai) - Window manager (for workspace features)
 
 ## Installation
 
-### Option 1: 로컬 설치 스크립트 (권장)
+### Quick Install (Recommended)
 
-```bash
-cd ~/.config/sketchybar
-./install.sh
-```
-
-### Option 2: 원격 설치 (GitHub 업로드 후)
-
-다른 컴퓨터에서 빠르게 설치하거나 dotfiles로 관리하는 경우:
+Install with a single command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/install.sh | bash
 ```
 
-### Option 3: 수동 설치
+### Manual Installation
 
-### 1. Homebrew 설치 (없는 경우)
+#### 1. Install Homebrew (if not installed)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. 필수 프로그램 설치
+#### 2. Install Required Packages
 
 ```bash
 brew install sketchybar jq
 brew install --cask font-space-mono-nerd-font
 ```
 
-### 3. (선택) Window Manager 설치
+#### 3. (Optional) Install Window Manager
 
-Space 기능을 사용하려면 yabai를 설치하세요:
+For workspace/space features, install yabai:
 
 ```bash
 brew install koekeishiya/formulae/yabai
 brew services start yabai
 ```
 
-### 4. 설정 파일 복사
+#### 4. Clone Configuration
 
 ```bash
-# 기존 설정 백업 (있는 경우)
+# Backup existing config (if any)
 mv ~/.config/sketchybar ~/.config/sketchybar.backup
 
-# 이 설정 복사
-cp -r /path/to/this/config ~/.config/sketchybar
+# Clone this configuration
+git clone https://github.com/zerochae/sketchybar-gray ~/.config/sketchybar
 ```
 
-### 5. 앱 아이콘 폰트 설치
+#### 5. Install App Icon Font
 
 ```bash
 cd /tmp
@@ -63,7 +69,7 @@ pnpm install
 pnpm run build:install
 ```
 
-오류가 발생하면:
+If you encounter errors:
 
 ```bash
 mkdir -p ~/.config/sketchybar/icons
@@ -71,44 +77,44 @@ cp dist/icon_map.sh ~/.config/sketchybar/icons/apps.sh
 cp dist/sketchybar-app-font.ttf ~/Library/Fonts/
 ```
 
-### 6. Sketchybar 시작
+#### 6. Start Sketchybar
 
 ```bash
-brew services start sketchybar
+brew services restart sketchybar
 ```
 
-완료! 이제 상단 바에서 커스터마이징된 상태바를 확인할 수 있습니다.
+Done! You should now see the customized status bar at the top of your screen.
 
 ## Configuration
 
-### 환경변수 커스터마이징
+### Environment Variables
 
-`sketchybarrc` 파일에서 다양한 설정을 변경할 수 있습니다:
+Customize settings in `sketchybarrc`:
 
 ```bash
-# 폰트 설정
+# Font settings
 export SBAR_FONT_FAMILY="SpaceMono Nerd Font Mono"
 export SBAR_APP_ICON_FONT="sketchybar-app-font"
-export SBAR_APP_ICON_FONT_SIZE="20.0"  # 아이콘 크기 조절
+export SBAR_APP_ICON_FONT_SIZE="20.0"  # Adjust icon size
 
-# 바 설정
+# Bar settings
 export SBAR_BAR_HEIGHT=56
-export SBAR_BAR_POSITION="top"  # top 또는 bottom
+export SBAR_BAR_POSITION="top"  # top or bottom
 
-# 업데이트 주기
-export SBAR_ITEM_UPDATE_FREQ_FAST=2    # 빠른 업데이트 (초)
+# Update frequency
+export SBAR_ITEM_UPDATE_FREQ_FAST=2    # Fast update interval (seconds)
 export SBAR_ITEM_UPDATE_FREQ_DEFAULT=10
 export SBAR_ITEM_UPDATE_FREQ_SLOW=30
 ```
 
-### 위젯 활성화/비활성화
+### Enable/Disable Widgets
 
-`sketchybarrc`에서 `SBAR_WIDGETS_*` 배열을 수정:
+Edit the `SBAR_WIDGETS_*` arrays in `sketchybarrc`:
 
 ```bash
 export SBAR_WIDGETS_RIGHT=(
   "clock"
-  "weather"      # 제거하려면 이 줄을 삭제
+  "weather"      # Remove this line to disable weather
   "caffeinate"
   "volume"
   "battery"
@@ -119,25 +125,25 @@ export SBAR_WIDGETS_RIGHT=(
 )
 ```
 
-### 날씨 위치 변경
+### Change Weather Location
 
-`sketchybarrc`:
+In `sketchybarrc`:
 
 ```bash
-export SBAR_WEATHER_LOCATION="Seoul"  # 원하는 도시로 변경
+export SBAR_WEATHER_LOCATION="Seoul"  # Change to your city
 ```
 
 ## Directory Structure
 
 ```
 ~/.config/sketchybar/
-├── sketchybarrc           # 메인 설정 파일 (환경변수)
-├── loader.sh              # 위젯 로더
-├── README.md              # 문서
+├── sketchybarrc           # Main configuration file (environment variables)
+├── loader.sh              # Widget loader
+├── README.md              # Documentation
 ├── icons/
-│   ├── apps.sh            # 앱 아이콘 매핑 (sketchybar-app-font)
-│   └── system.json        # 시스템 아이콘 (Nerd Fonts)
-├── items/                 # 위젯 아이템 정의
+│   ├── apps.sh            # App icon mappings (sketchybar-app-font)
+│   └── system.json        # System icons (Nerd Fonts)
+├── items/                 # Widget item definitions
 │   ├── space.sh
 │   ├── front_app.sh
 │   ├── clock.sh
@@ -149,51 +155,51 @@ export SBAR_WEATHER_LOCATION="Seoul"  # 원하는 도시로 변경
 │   ├── volume.sh
 │   ├── caffeinate.sh
 │   └── netstat.sh
-├── plugins/               # 위젯 스크립트
-│   ├── helpers.sh         # 유틸리티 함수
-│   ├── app_icon.sh        # 아이콘 헬퍼
+├── plugins/               # Widget scripts
+│   ├── helpers.sh         # Utility functions
+│   ├── app_icon.sh        # Icon helper
 │   ├── front_app.sh
 │   ├── space.sh
-│   ├── yabai.sh          # yabai 통합
-│   ├── mission_control.sh # mission control 대안
+│   ├── yabai.sh          # yabai integration
+│   ├── mission_control.sh # Mission control fallback
 │   └── ...
 └── tokens/
-    └── colors.sh          # 색상 정의
+    └── colors.sh          # Color definitions
 ```
 
 ## Troubleshooting
 
-### 아이콘이 표시되지 않음
+### Icons not displaying
 
-1. 폰트 설치 확인:
+1. Check font installation:
    ```bash
    fc-list | grep -i "space mono"
    fc-list | grep -i "sketchybar-app-font"
    ```
 
-2. Sketchybar 재시작:
+2. Restart Sketchybar:
    ```bash
    brew services restart sketchybar
    ```
 
-### Space에 앱이 표시되지 않음
+### Apps not showing in spaces
 
-yabai가 설치되고 실행 중인지 확인:
+Verify yabai is installed and running:
 ```bash
 brew services list | grep yabai
 yabai -m query --spaces
 ```
 
-### 날씨가 표시되지 않음
+### Weather not displaying
 
-인터넷 연결과 curl 작동 확인:
+Check internet connection and curl:
 ```bash
 curl -s "wttr.in/Seoul?format=j1"
 ```
 
-### Permission 오류
+### Permission errors
 
-Sketchybar 스크립트에 실행 권한 부여:
+Grant execute permissions to scripts:
 ```bash
 chmod +x ~/.config/sketchybar/plugins/*.sh
 chmod +x ~/.config/sketchybar/items/*.sh
