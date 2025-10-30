@@ -2,15 +2,24 @@
 
 macOS 상단 바를 커스터마이징하는 설정입니다. 앱 아이콘, 시스템 상태, 날씨 등을 표시합니다.
 
-## Quick Install
+## Installation
 
-**GitHub에 업로드 후 사용 가능:**
+### Option 1: 로컬 설치 스크립트 (권장)
+
+```bash
+cd ~/.config/sketchybar
+./install.sh
+```
+
+### Option 2: 원격 설치 (GitHub 업로드 후)
+
+다른 컴퓨터에서 빠르게 설치하거나 dotfiles로 관리하는 경우:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/sketchybar-config/master/install.sh | bash
 ```
 
-## Manual Installation
+### Option 3: 수동 설치
 
 ### 1. Homebrew 설치 (없는 경우)
 
