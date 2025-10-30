@@ -3,7 +3,7 @@
 sketchybar --add item front_app.icon center \
   --set front_app.icon \
   icon="" \
-  icon.font="$SBAR_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+  icon.font="$SBAR_APP_ICON_FONT:Regular:$SBAR_APP_ICON_FONT_SIZE" \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"

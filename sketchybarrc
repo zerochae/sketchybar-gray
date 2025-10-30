@@ -13,6 +13,9 @@ export SBAR_FONT_FACE_BOLD="${SBAR_FONT_FAMILY}:Bold"
 export SBAR_ICON_FONT_SIZE="18.0"
 export SBAR_LABEL_FONT_SIZE="12.0"
 
+export SBAR_APP_ICON_FONT="sketchybar-app-font"
+export SBAR_APP_ICON_FONT_SIZE="13.5"
+
 # ========== Bar Settings ==========
 export SBAR_BAR_HEIGHT=56
 export SBAR_BAR_POSITION="top"
@@ -76,6 +79,7 @@ export SBAR_AUTO_INSERT_SPACER=true
 # ========== Display Options ==========
 export SBAR_NETSTAT_SHOW_GRAPH=true
 export SBAR_NETSTAT_SHOW_SPEED=false
+export SBAR_WEATHER_LOCATION="Seoul"
 
 # ---------- default & bar ----------
 sketchybar \

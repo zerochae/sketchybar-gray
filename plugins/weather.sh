@@ -2,8 +2,7 @@
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-LOCATION="Seoul"
-WEATHER_JSON=$(curl -s "wttr.in/$LOCATION?format=j1" 2>/dev/null)
+WEATHER_JSON=$(curl -s "wttr.in/$SBAR_WEATHER_LOCATION?format=j1" 2>/dev/null)
 
 if [ -z "$WEATHER_JSON" ]; then
   TEMP="N/A"

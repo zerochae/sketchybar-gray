@@ -17,7 +17,7 @@ for sid in $workspaces; do
     --set "space.$sid" \
     space="$sid" \
     icon="" \
-    icon.font="$SBAR_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+    icon.font="$SBAR_APP_ICON_FONT:Regular:$SBAR_APP_ICON_FONT_SIZE" \
     icon.color="$COLOR_WHITE" \
     icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
     icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \

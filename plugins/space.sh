@@ -3,6 +3,9 @@
 source "$CONFIG_DIR/tokens/colors.sh"
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
+SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
+SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-24.0}"
+
 if command -v yabai >/dev/null 2>&1; then
   source "$CONFIG_DIR/plugins/yabai.sh"
 else

@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/icons/apps.sh"
+
 get_icon_from_json() {
   local icon_name="$1"
   local use_contains="${2:-true}"
-  local icon_json="$CONFIG_DIR/data/icon.json"
+  local icon_json="$CONFIG_DIR/icons/system.json"
 
   if [ "$use_contains" = "true" ]; then
     jq -r ".[] | select(.name | contains(\"$icon_name\")) | .char" "$icon_json" | head -1
@@ -14,52 +16,8 @@ get_icon_from_json() {
 
 get_icon() {
   local app_name="$1"
-  local icon=""
-
-  case "$app_name" in
-  "Google Chrome" | "Chrome" | "Arc")
-    icon=$(get_icon_from_json "fa-chrome")
-    ;;
-  "Safari")
-    icon=$(get_icon_from_json "safari")
-    ;;
-  "Firefox")
-    icon=$(get_icon_from_json "firefox")
-    ;;
-  "Terminal" | "iTerm" | "iTerm2" | "WezTerm")
-    icon=$(get_icon_from_json "terminal")
-    ;;
-  "Code" | "Visual Studio Code" | "VSCode")
-    icon=$(get_icon_from_json "vscode")
-    ;;
-  "Finder")
-    icon=$(get_icon_from_json "folder")
-    ;;
-  "Slack")
-    icon=$(get_icon_from_json "slack")
-    ;;
-  "Music" | "Spotify")
-    icon=$(get_icon_from_json "music")
-    ;;
-  "Mail")
-    icon=$(get_icon_from_json "mail")
-    ;;
-  "카카오톡")
-    icon=$(get_icon_from_json "fa-message")
-    ;;
-  "Notion")
-    icon=$(get_icon_from_json "notion")
-    ;;
-  *)
-    icon=$(get_icon_from_json "md-application")
-    ;;
-  esac
-
-  if [ -z "$icon" ]; then
-    icon=$(get_icon_from_json "md-application")
-  fi
-
-  echo "$icon"
+  __icon_map "$app_name"
+  echo "$icon_result"
 }
 
 get_system_icon() {
