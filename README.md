@@ -2,7 +2,15 @@
 
 macOS 상단 바를 커스터마이징하는 설정입니다. 앱 아이콘, 시스템 상태, 날씨 등을 표시합니다.
 
-## Installation
+## Quick Install
+
+**GitHub에 업로드 후 사용 가능:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/sketchybar-config/master/install.sh | bash
+```
+
+## Manual Installation
 
 ### 1. Homebrew 설치 (없는 경우)
 
