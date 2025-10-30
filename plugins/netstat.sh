@@ -2,18 +2,11 @@
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-LOCK_DIR="/tmp/sketchybar_netstat.lock"
-
-if ! mkdir "$LOCK_DIR" 2>/dev/null; then
-  exit 0
-fi
-
 cleanup() {
   if [ -n "$netstat_pid" ]; then
     kill "$netstat_pid" 2>/dev/null
     wait "$netstat_pid" 2>/dev/null
   fi
-  rmdir "$LOCK_DIR" 2>/dev/null
 }
 
 trap cleanup EXIT
