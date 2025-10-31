@@ -41,6 +41,7 @@ echo ""
 
 echo "[1/6] Installing required packages..."
 echo "----------------------------------------"
+brew tap FelixKratz/formulae 2>&1 | grep -v "already tapped" || true
 brew install sketchybar jq 2>&1 | grep -v "already installed" || true
 brew install --cask font-space-mono-nerd-font 2>&1 | grep -v "already installed" || true
 echo ""

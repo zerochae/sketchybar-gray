@@ -77,6 +77,7 @@ export SBAR_WIDGETS_RIGHT=(
 export SBAR_AUTO_INSERT_SPACER=true
 
 # ========== Display Options ==========
+export SBAR_CLOCK_FORMAT="MM/DD HH:mm"
 export SBAR_NETSTAT_SHOW_GRAPH=true
 export SBAR_NETSTAT_SHOW_SPEED=false
 export SBAR_WEATHER_LOCATION="Seoul"
@@ -96,9 +97,9 @@ sketchybar \
 # ---------- load widgets ----------
 source "$CONFIG_DIR/loader.sh"
 
-load_widgets SBAR_WIDGETS_LEFT
-load_widgets SBAR_WIDGETS_CENTER
-load_widgets SBAR_WIDGETS_RIGHT
+load_widgets "${SBAR_WIDGETS_LEFT[@]}"
+load_widgets "${SBAR_WIDGETS_CENTER[@]}"
+load_widgets "${SBAR_WIDGETS_RIGHT[@]}"
 
 # ---------- update ----------
 sketchybar --update
