@@ -83,6 +83,9 @@ get_system_icon() {
   "battery_charging")
     icon=$(get_icon_from_json "fa-battery_4" false)
     ;;
+  "config")
+    icon=$(get_icon_from_json "seti-config" false)
+    ;;
   "battery")
     if [ "$percentage" -ge 75 ]; then
       icon=$(get_icon_from_json "fa-battery_4" false)

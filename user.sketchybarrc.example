@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# User Custom Configuration
+# Copy this file to user.sketchybarrc and customize your settings
+# cp user.sketchybarrc.example user.sketchybarrc
+
+# ========== Fonts ==========
+# export SBAR_FONT_FAMILY="SpaceMono Nerd Font Mono"
+# export SBAR_ICON_FONT_SIZE="18.0"
+# export SBAR_LABEL_FONT_SIZE="12.0"
+# export SBAR_APP_ICON_FONT_SIZE="13.5"
+
+# ========== Widget List ==========
+# Customize which widgets to show in the bar
+# Uncomment and modify the list below to override default widgets
+
+# export SBAR_WIDGETS_RIGHT=(
+#   "config"
+#   "clock"
+#   "weather"
+#   "caffeinate"
+#   "volume"
+#   "battery"
+#   "disk"
+#   "ram"
+#   "cpu"
+#   "netstat"
+# )
+
+# ========== Display Options ==========
+# export SBAR_CLOCK_FORMAT="MM/DD HH:mm"
+# export SBAR_WEATHER_LOCATION="Seoul"
+# export SBAR_NETSTAT_SHOW_GRAPH=true
+# export SBAR_NETSTAT_SHOW_SPEED=false
+
+# ========== Colors ==========
+# Override widget colors if needed
+# export SBAR_COLOR_CLOCK="$COLOR_YELLOW1"
+# export SBAR_COLOR_WEATHER="$COLOR_CYAN1"
+# export SBAR_COLOR_BATTERY="$COLOR_ORANGE1"
