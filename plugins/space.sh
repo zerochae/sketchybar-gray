@@ -8,31 +8,26 @@ SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-24.0}"
 
 if command -v yabai >/dev/null 2>&1; then
   source "$CONFIG_DIR/plugins/yabai.sh"
+  APPS=$(get_space_apps "$SID")
 else
   source "$CONFIG_DIR/plugins/mission_control.sh"
+  APPS=$(get_space_apps)
+  SELECTED="true"
 fi
 
-APPS=$(get_space_apps "$SID")
-
 ICONS=""
-
 if [ -n "$APPS" ]; then
   while IFS= read -r app; do
-    if [ -n "$app" ]; then
-      ICON=$(get_icon "$app")
-      ICONS="$ICONS$ICON "
-    fi
+    [ -n "$app" ] && ICONS="$ICONS$(get_icon "$app") "
   done <<< "$APPS"
   ICONS="${ICONS% }"
 fi
 
 if [ -z "$ICONS" ]; then
   ICON_PADDING=4
-  ICON_PADDING_RIGHT=4
   LABEL_DRAWING=on
 else
   ICON_PADDING=8
-  ICON_PADDING_RIGHT=8
   LABEL_DRAWING=off
 fi
 
@@ -49,7 +44,7 @@ fi
 sketchybar --set "$NAME" \
   icon="$ICONS" \
   icon.padding_left="$ICON_PADDING" \
-  icon.padding_right="$ICON_PADDING_RIGHT" \
+  icon.padding_right="$ICON_PADDING" \
   icon.color="$ICON_COLOR" \
   label.drawing="$LABEL_DRAWING" \
   label.color="$LABEL_COLOR" \
