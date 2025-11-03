@@ -18,6 +18,6 @@ EOF
 )
 
 if [ -n "$RESULT" ]; then
-  set_config_value "SBAR_NETSTAT_SHOW_GRAPH" "$RESULT" false
+  set_config_value "SBAR_NETSTAT_SHOW_GRAPH" "$RESULT"
   sketchybar --reload
 fi

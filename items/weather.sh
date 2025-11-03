@@ -14,7 +14,7 @@ sketchybar --add item weather.label right \
 sketchybar --add item weather.icon right \
   --set weather.icon \
   icon="$WEATHER_ICON" \
-  icon.font="$SBAR_FONT_FACE_BOLD:23.0" \
+  icon.font="$SBAR_ICON_FONT_FACE_BOLD:23.0" \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"

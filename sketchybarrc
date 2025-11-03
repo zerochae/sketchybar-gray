@@ -5,16 +5,26 @@ SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
 SBAR_ITEM_DIR="$CONFIG_DIR/items"
 source "$CONFIG_DIR/tokens/colors.sh"
 
+# ---------- user config override (load early) ----------
+USER_CONFIG="$CONFIG_DIR/user.sketchybarrc"
+if [ -f "$USER_CONFIG" ]; then
+  source "$USER_CONFIG"
+fi
+
 # ========== Fonts ==========
-export SBAR_FONT_FAMILY="SpaceMono Nerd Font Mono"
-export SBAR_FONT_FACE_REGULAR="${SBAR_FONT_FAMILY}:Regular"
-export SBAR_FONT_FACE_BOLD="${SBAR_FONT_FAMILY}:Bold"
+export SBAR_LABEL_FONT_FAMILY="${SBAR_LABEL_FONT_FAMILY:-SpaceMono Nerd Font Mono}"
+export SBAR_ICON_FONT_FAMILY="${SBAR_ICON_FONT_FAMILY:-$SBAR_LABEL_FONT_FAMILY}"
 
-export SBAR_ICON_FONT_SIZE="18.0"
-export SBAR_LABEL_FONT_SIZE="12.0"
+export SBAR_ICON_FONT_FACE_REGULAR="${SBAR_ICON_FONT_FAMILY}:Regular"
+export SBAR_ICON_FONT_FACE_BOLD="${SBAR_ICON_FONT_FAMILY}:Bold"
+export SBAR_LABEL_FONT_FACE_REGULAR="${SBAR_LABEL_FONT_FAMILY}:Regular"
+export SBAR_LABEL_FONT_FACE_BOLD="${SBAR_LABEL_FONT_FAMILY}:Bold"
 
-export SBAR_APP_ICON_FONT="sketchybar-app-font"
-export SBAR_APP_ICON_FONT_SIZE="13.5"
+export SBAR_ICON_FONT_SIZE="${SBAR_ICON_FONT_SIZE:-18.0}"
+export SBAR_LABEL_FONT_SIZE="${SBAR_LABEL_FONT_SIZE:-12.0}"
+
+export SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
+export SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
 
 # ========== Bar Settings ==========
 export SBAR_BAR_HEIGHT=56
@@ -91,20 +101,14 @@ export SBAR_WEATHER_LOCATION="Seoul"
 # ---------- default & bar ----------
 sketchybar \
   --default \
-  icon.font="$SBAR_FONT_FACE_REGULAR:$SBAR_ICON_FONT_SIZE" \
-  label.font="$SBAR_FONT_FACE_REGULAR:$SBAR_LABEL_FONT_SIZE" \
+  icon.font="$SBAR_ICON_FONT_FACE_REGULAR:$SBAR_ICON_FONT_SIZE" \
+  label.font="$SBAR_LABEL_FONT_FACE_REGULAR:$SBAR_LABEL_FONT_SIZE" \
   icon.color="$SBAR_DEFAULT_ICON_COLOR" \
   label.color="$SBAR_DEFAULT_LABEL_COLOR" \
   --bar \
   position="$SBAR_BAR_POSITION" \
   height="$SBAR_BAR_HEIGHT" \
   color="$SBAR_BAR_COLOR"
-
-# ---------- user config override ----------
-USER_CONFIG="$CONFIG_DIR/user.sketchybarrc"
-if [ -f "$USER_CONFIG" ]; then
-  source "$USER_CONFIG"
-fi
 
 # ---------- load widgets ----------
 source "$CONFIG_DIR/loader.sh"

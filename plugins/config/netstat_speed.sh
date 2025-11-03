@@ -18,6 +18,6 @@ EOF
 )
 
 if [ -n "$RESULT" ]; then
-  set_config_value "SBAR_NETSTAT_SHOW_SPEED" "$RESULT" false
+  set_config_value "SBAR_NETSTAT_SHOW_SPEED" "$RESULT"
   sketchybar --reload
 fi

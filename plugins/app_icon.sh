@@ -30,10 +30,10 @@ get_system_icon() {
     icon=$(get_icon_from_json "fa-clock" false)
     ;;
   "cpu")
-    icon=$(get_icon_from_json "fa-microchip")
+    icon=$(get_icon_from_json "fae-chip")
     ;;
   "ram")
-    icon=$(get_icon_from_json "fa-memory")
+    icon=$(get_icon_from_json "md-memory")
     ;;
   "disk")
     icon=$(get_icon_from_json "fa-hdd_o")

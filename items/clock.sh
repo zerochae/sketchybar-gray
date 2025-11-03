@@ -14,7 +14,7 @@ sketchybar --add item clock.label right \
 sketchybar --add item clock.icon right \
 	--set clock.icon \
 		icon="$CLOCK_ICON" \
-		icon.font="$SBAR_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+		icon.font="$SBAR_ICON_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
 		icon.color="$COLOR_BLACK" \
 		icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
 		icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"

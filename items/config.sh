@@ -30,13 +30,32 @@ sketchybar --add item config right \
   popup.background.shadow.drawing=on \
   click_script="sketchybar --set config popup.drawing=toggle"
 
-sketchybar --add item config.font_family popup.config \
-  --set config.font_family \
+sketchybar --add item config.category_font popup.config \
+  --set config.category_font \
   icon=󰛖 \
+  label="FONT" \
+  icon.drawing=off \
+  label.color="$COLOR_WHITE" \
+  label.font="$SBAR_LABEL_FONT_FACE_BOLD:12.0" \
+  label.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  background.color="$COLOR_DARK_GRAY" \
+  background.height=20 \
+  background.corner_radius=4 \
+  click_script=""
+
+sketchybar --add item config.icon_font_family popup.config \
+  --set config.icon_font_family \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
-  label="Font Family" \
-  click_script="$SBAR_PLUGIN_DIR/config/font_family.sh"
+  label="Icon Font Family" \
+  click_script="$SBAR_PLUGIN_DIR/config/icon_font_family.sh"
+
+sketchybar --add item config.label_font_family popup.config \
+  --set config.label_font_family \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Label Font Family" \
+  click_script="$SBAR_PLUGIN_DIR/config/label_font_family.sh"
 
 sketchybar --add item config.icon_size popup.config \
   --set config.icon_size \
@@ -62,11 +81,17 @@ sketchybar --add item config.app_icon_size popup.config \
   label="App Icon Size" \
   click_script="$SBAR_PLUGIN_DIR/config/app_icon_size.sh"
 
-sketchybar --add item config.separator1 popup.config \
-  --set config.separator1 \
+sketchybar --add item config.category_widget popup.config \
+  --set config.category_widget \
   icon= \
-  label="────────────" \
-  label.color="$COLOR_DARK_GRAY" \
+  label="WIDGET" \
+  icon.drawing=off \
+  label.color="$COLOR_WHITE" \
+  label.font="$SBAR_LABEL_FONT_FACE_BOLD:12.0" \
+  label.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  background.color="$COLOR_DARK_GRAY" \
+  background.height=20 \
+  background.corner_radius=4 \
   click_script=""
 
 sketchybar --add item config.clock_format popup.config \
@@ -85,13 +110,6 @@ sketchybar --add item config.weather_location popup.config \
   label="Weather Location" \
   click_script="$SBAR_PLUGIN_DIR/config/weather_location.sh"
 
-sketchybar --add item config.separator2 popup.config \
-  --set config.separator2 \
-  icon= \
-  label="────────────" \
-  label.color="$COLOR_DARK_GRAY" \
-  click_script=""
-
 sketchybar --add item config.netstat_graph popup.config \
   --set config.netstat_graph \
   icon= \
@@ -102,7 +120,7 @@ sketchybar --add item config.netstat_graph popup.config \
 
 sketchybar --add item config.netstat_speed popup.config \
   --set config.netstat_speed \
-  icon=󰓅 \
+  icon= \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Netstat Speed" \

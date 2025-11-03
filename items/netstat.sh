@@ -16,7 +16,7 @@ sketchybar --add item netstat.down.label right \
 --add item netstat.down.icon right \
   --set netstat.down.icon \
   icon="$DOWN_ICON" \
-  icon.font="$SBAR_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+  icon.font="$SBAR_ICON_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \
@@ -29,7 +29,7 @@ sketchybar --add item netstat.down.label right \
 --add item netstat.up.icon right \
   --set netstat.up.icon \
   icon="$UP_ICON" \
-  icon.font="$SBAR_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+  icon.font="$SBAR_ICON_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"
