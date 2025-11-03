@@ -1,3 +1,5 @@
+<img width="2294" height="81" alt="SCR-20251031-imxz" src="https://github.com/user-attachments/assets/649aedcf-0f84-4033-b245-f15b7d19ef06" />
+
 # Sketchybar Configuration
 
 A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
