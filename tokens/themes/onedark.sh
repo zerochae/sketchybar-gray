@@ -5,8 +5,6 @@
 
 source "$CONFIG_DIR/tokens/helpers.sh"
 
-export COLOR_WHITE="0xFFabb2bf"
-export COLOR_BLACK="0xFF282c34"
 export COLOR_TRANSPARENT="0x00ffffff"
 export COLOR_LIGHT_GRAY="0xFF9ba2af"
 export COLOR_DARK_GRAY="0xFF565c64"
@@ -14,6 +12,8 @@ export COLOR_DARK_GRAY="0xFF565c64"
 export COLOR_BG1="0xFF1a1a26"
 export COLOR_BG2="0xFF1F1F2B"
 
+generate_alpha_variants "WHITE" "0xFFabb2bf"
+generate_alpha_variants "BLACK" "0xFF282c34"
 generate_alpha_variants "RED" "0xFFE06C75"
 generate_alpha_variants "YELLOW" "0xFFe5c07b"
 generate_alpha_variants "BLUE" "0xFF61afef"
