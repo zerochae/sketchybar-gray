@@ -11,8 +11,8 @@ export COLOR_TRANSPARENT="0x00ffffff"
 export COLOR_LIGHT_GRAY="0xFFD8DEE9"
 export COLOR_DARK_GRAY="0xFF4C566A"
 
-generate_alpha_variants "BG1" "0xFF2E3440"
-generate_alpha_variants "BG2" "0xFF3B4252"
+export COLOR_BG1="0xFF2E3440"
+export COLOR_BG2="0xFF3B4252"
 
 generate_alpha_variants "RED" "0xFFBF616A"
 generate_alpha_variants "YELLOW" "0xFFEBCB8B"
