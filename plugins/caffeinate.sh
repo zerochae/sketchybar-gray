@@ -10,17 +10,17 @@ if [ -f "$PID_FILE" ]; then
   if kill -0 "$PID" 2>/dev/null && ps -p "$PID" -o comm= | grep -q "caffeinate"; then
     ICON=$(get_icon_from_json "md-tea")
     ICON_COLOR="$COLOR_WHITE"
-    BG_COLOR="$COLOR_GREEN1"
+    BG_COLOR="$COLOR_GREEN"
   else
     rm "$PID_FILE"
     ICON=$(get_icon_from_json "md-coffee")
     ICON_COLOR="$COLOR_BLACK"
-    BG_COLOR="$COLOR_GREEN2"
+    BG_COLOR="$COLOR_GREEN_75"
   fi
 else
   ICON=$(get_icon_from_json "md-coffee")
   ICON_COLOR="$COLOR_BLACK"
-  BG_COLOR="$COLOR_GREEN2"
+  BG_COLOR="$COLOR_GREEN_75"
 fi
 
 sketchybar --set caffeinate.icon \

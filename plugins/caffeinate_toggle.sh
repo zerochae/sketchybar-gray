@@ -12,21 +12,21 @@ if [ -f "$PID_FILE" ]; then
     rm "$PID_FILE"
     ICON=$(get_icon_from_json "md-coffee")
     ICON_COLOR="$COLOR_BLACK"
-    BG_COLOR="$COLOR_GREEN2"
+    BG_COLOR="$COLOR_GREEN_75"
   else
     rm "$PID_FILE"
     caffeinate -d &
     echo $! >"$PID_FILE"
     ICON=$(get_icon_from_json "md-tea")
     ICON_COLOR="$COLOR_WHITE"
-    BG_COLOR="$COLOR_RED2"
+    BG_COLOR="$COLOR_RED_75"
   fi
 else
   caffeinate -d &
   echo $! >"$PID_FILE"
   ICON=$(get_icon_from_json "md-tea")
   ICON_COLOR="$COLOR_WHITE"
-  BG_COLOR="$COLOR_RED2"
+  BG_COLOR="$COLOR_RED_75"
 fi
 
 sketchybar --set caffeinate.icon icon="$ICON" icon.color="$ICON_COLOR" \
