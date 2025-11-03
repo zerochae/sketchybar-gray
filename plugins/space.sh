@@ -10,6 +10,7 @@ fi
 
 SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
 SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-24.0}"
+BG_HEIGHT=24
 
 if command -v yabai >/dev/null 2>&1; then
   source "$CONFIG_DIR/plugins/yabai.sh"
@@ -43,12 +44,14 @@ if [ "$THEME_TYPE" = "light" ]; then
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
     ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE + 0.5" | bc)
+    BG_HEIGHT=$(echo "$BG_HEIGHT + 0.5" | bc)
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$SBAR_APP_ICON_FONT_SIZE
+    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE - 1.5" | bc)
+    BG_HEIGHT=$(echo "$BG_HEIGHT - 1.5" | bc)
   fi
 else
   if [ "$SELECTED" = "true" ]; then
@@ -57,12 +60,14 @@ else
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
     ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE + 0.5" | bc)
+    BG_HEIGHT=$(echo "$BG_HEIGHT + 0.5" | bc)
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$SBAR_APP_ICON_FONT_SIZE
+    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE - 1.5" | bc)
+    BG_HEIGHT=$(echo "$BG_HEIGHT - 1.5" | bc)
   fi
 fi
 
@@ -76,4 +81,5 @@ sketchybar --set "$NAME" \
   label.color="$LABEL_COLOR" \
   background.color="$BG_COLOR" \
   background.border_color="$BORDER_COLOR" \
-  background.drawing="on"
+  background.drawing="on" \
+  background.height="$BG_HEIGHT"
