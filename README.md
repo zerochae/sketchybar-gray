@@ -39,6 +39,7 @@ curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/ins
 #### 2. Install Required Packages
 
 ```bash
+brew tap FelixKratz/formulae
 brew install sketchybar jq
 brew install --cask font-space-mono-nerd-font
 ```
