@@ -23,7 +23,7 @@ sketchybar --add item config right \
   popup.height=30 \
   popup.padding_left="$SBAR_POPUP_PADDING_LEFT" \
   popup.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
-  popup.y_offset=8 \
+  popup.y_offset=2 \
   popup.background.color="$COLOR_BG1" \
   popup.background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   popup.background.border_width=1 \
