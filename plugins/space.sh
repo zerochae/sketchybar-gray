@@ -31,14 +31,32 @@ else
   LABEL_DRAWING=off
 fi
 
-if [ "$SELECTED" = "true" ]; then
-  ICON_COLOR="$COLOR_BLACK"
-  LABEL_COLOR="$COLOR_BLACK"
-  BG_COLOR="$COLOR_GREEN"
+USER_CONFIG="$HOME/.config/sketchybar/user.sketchybarrc"
+if [ -f "$USER_CONFIG" ]; then
+  THEME=$(grep "^export SBAR_THEME=" "$USER_CONFIG" | sed 's/.*="\(.*\)"/\1/' | sed 's/.*=\(.*\)/\1/')
+fi
+THEME="${THEME:-onedark}"
+
+if [[ "$THEME" == *"light"* ]]; then
+  if [ "$SELECTED" = "true" ]; then
+    ICON_COLOR="$COLOR_WHITE"
+    LABEL_COLOR="$COLOR_WHITE"
+    BG_COLOR="$COLOR_GREEN"
+  else
+    ICON_COLOR="$COLOR_BLACK"
+    LABEL_COLOR="$COLOR_BLACK"
+    BG_COLOR="$COLOR_BG2_75"
+  fi
 else
-  ICON_COLOR="$COLOR_LIGHT_GRAY"
-  LABEL_COLOR="$COLOR_LIGHT_GRAY"
-  BG_COLOR="$COLOR_BG2_75"
+  if [ "$SELECTED" = "true" ]; then
+    ICON_COLOR="$COLOR_BLACK"
+    LABEL_COLOR="$COLOR_BLACK"
+    BG_COLOR="$COLOR_GREEN"
+  else
+    ICON_COLOR="$COLOR_LIGHT_GRAY"
+    LABEL_COLOR="$COLOR_LIGHT_GRAY"
+    BG_COLOR="$COLOR_BG2_75"
+  fi
 fi
 
 sketchybar --set "$NAME" \
