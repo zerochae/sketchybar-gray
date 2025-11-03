@@ -38,7 +38,12 @@ export SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
 # ========== Bar Settings ==========
 export SBAR_BAR_HEIGHT=56
 export SBAR_BAR_POSITION="top"
-export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
+export SBAR_BAR_BACKGROUND="${SBAR_BAR_BACKGROUND:-transparent}"
+if [ "$SBAR_BAR_BACKGROUND" = "bg1" ]; then
+  export SBAR_BAR_COLOR="$COLOR_BG1"
+else
+  export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
+fi
 
 # ========== Default Colors ==========
 export SBAR_DEFAULT_ICON_COLOR="$COLOR_WHITE"
