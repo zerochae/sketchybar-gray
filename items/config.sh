@@ -37,12 +37,10 @@ sketchybar --add item config.category_font popup.config \
   icon=󰛖 \
   label="FONT" \
   icon.drawing=off \
-  label.color="$COLOR_WHITE" \
+  label.color="$COLOR_GREEN" \
   label.font="$SBAR_LABEL_FONT_FACE_BOLD:12.0" \
   label.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
-  background.color="$COLOR_DARK_GRAY" \
-  background.height=20 \
-  background.corner_radius=4 \
+  background.drawing=off \
   click_script=""
 
 sketchybar --add item config.icon_font_family popup.config \
@@ -88,12 +86,10 @@ sketchybar --add item config.category_widget popup.config \
   icon= \
   label="WIDGET" \
   icon.drawing=off \
-  label.color="$COLOR_WHITE" \
+  label.color="$COLOR_GREEN" \
   label.font="$SBAR_LABEL_FONT_FACE_BOLD:12.0" \
   label.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
-  background.color="$COLOR_DARK_GRAY" \
-  background.height=20 \
-  background.corner_radius=4 \
+  background.drawing=off \
   click_script=""
 
 sketchybar --add item config.theme popup.config \
