@@ -5,6 +5,8 @@
 
 source "$CONFIG_DIR/tokens/helpers.sh"
 
+export THEME_TYPE="light"
+
 export COLOR_TRANSPARENT="0x00ffffff"
 export COLOR_LIGHT_GRAY="0xFF9d9fa3"
 export COLOR_DARK_GRAY="0xFFd7d7d8"

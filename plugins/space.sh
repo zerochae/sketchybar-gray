@@ -31,13 +31,7 @@ else
   LABEL_DRAWING=off
 fi
 
-USER_CONFIG="$HOME/.config/sketchybar/user.sketchybarrc"
-if [ -f "$USER_CONFIG" ]; then
-  THEME=$(grep "^export SBAR_THEME=" "$USER_CONFIG" | sed 's/.*="\(.*\)"/\1/' | sed 's/.*=\(.*\)/\1/')
-fi
-THEME="${THEME:-onedark}"
-
-if [[ "$THEME" == *"light"* ]]; then
+if [ "$THEME_TYPE" = "light" ]; then
   if [ "$SELECTED" = "true" ]; then
     ICON_COLOR="$COLOR_WHITE"
     LABEL_COLOR="$COLOR_WHITE"
