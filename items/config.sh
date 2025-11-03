@@ -48,6 +48,7 @@ sketchybar --add item config.icon_font_family popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Icon Font Family" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/icon_font_family.sh"
 
 sketchybar --add item config.label_font_family popup.config \
@@ -55,6 +56,7 @@ sketchybar --add item config.label_font_family popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Label Font Family" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/label_font_family.sh"
 
 sketchybar --add item config.icon_size popup.config \
@@ -63,6 +65,7 @@ sketchybar --add item config.icon_size popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Icon Size" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/icon_size.sh"
 
 sketchybar --add item config.label_size popup.config \
@@ -71,6 +74,7 @@ sketchybar --add item config.label_size popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Label Size" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/label_size.sh"
 
 sketchybar --add item config.app_icon_size popup.config \
@@ -79,6 +83,7 @@ sketchybar --add item config.app_icon_size popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="App Icon Size" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/app_icon_size.sh"
 
 sketchybar --add item config.category_widget popup.config \
@@ -98,6 +103,7 @@ sketchybar --add item config.theme popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Theme" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/theme.sh"
 
 sketchybar --add item config.clock_format popup.config \
@@ -106,6 +112,7 @@ sketchybar --add item config.clock_format popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Clock Format" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/clock_format.sh"
 
 sketchybar --add item config.weather_location popup.config \
@@ -114,6 +121,7 @@ sketchybar --add item config.weather_location popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Weather Location" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/weather_location.sh"
 
 sketchybar --add item config.netstat_graph popup.config \
@@ -122,6 +130,7 @@ sketchybar --add item config.netstat_graph popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Netstat Graph" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/netstat_graph.sh"
 
 sketchybar --add item config.netstat_speed popup.config \
@@ -130,6 +139,7 @@ sketchybar --add item config.netstat_speed popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Netstat Speed" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/netstat_speed.sh"
 
 sketchybar --add item config.separator3 popup.config \
@@ -145,6 +155,7 @@ sketchybar --add item config.reload popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Reload Config" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   icon.color="$COLOR_GREEN" \
   label.color="$COLOR_GREEN" \
   click_script="sketchybar --reload"
