@@ -1,80 +1,22 @@
 #!/usr/bin/env bash
 
-export COLOR_WHITE="0xffffffff"
-export COLOR_BLACK="0xFF000000"
-export COLOR_TRANSPARENT="0x00ffffff"
-export COLOR_LIGHT_GRAY="0xff9ca3af"
-export COLOR_PURPLE_DARK="0xff4c566a"
-export COLOR_DARK_TEXT="0xff2e3440"
-export COLOR_LIGHT_TEXT="0xffeceff4"
+# Color theme loader
+# Used by plugins that need to dynamically update colors
 
-# Background
-export COLOR_BG1="0xFF222222" # 100% Alpha
-export COLOR_BG1_75="0xBF222222" # 75% Alpha
-export COLOR_BG1_50="0x80222222" # 50% Alpha
-export COLOR_BG1_25="0x40222222" # 25% Alpha
+# Set CONFIG_DIR if not set
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 
-export COLOR_BG2="0xFF1E1E1E" # 100% Alpha
-export COLOR_BG2_75="0xBF1E1E1E" # 75% Alpha
-export COLOR_BG2_50="0x801E1E1E" # 50% Alpha
-export COLOR_BG2_25="0x401E1E1E" # 25% Alpha
+# Get theme from user config or use default
+USER_CONFIG="$HOME/.config/sketchybar/user.sketchybarrc"
+if [ -f "$USER_CONFIG" ]; then
+  THEME=$(grep "^export SBAR_THEME=" "$USER_CONFIG" | sed 's/.*="\(.*\)"/\1/' | sed 's/.*=\(.*\)/\1/')
+fi
 
-# Red
-export COLOR_RED1="0xFFE06C75" # 100% Alpha
-export COLOR_RED2="0xBFE06C75" # 75% Alpha
-export COLOR_RED3="0x80E06C75" # 50% Alpha
-export COLOR_RED4="0x40E06C75" # 25% Alpha
+THEME="${THEME:-onedark}"
+THEME_FILE="$CONFIG_DIR/tokens/themes/$THEME.sh"
 
-# Yellow
-export COLOR_YELLOW1="0xFFE5C07B"
-export COLOR_YELLOW2="0xBFE5C07B"
-export COLOR_YELLOW3="0x80E5C07B"
-export COLOR_YELLOW4="0x40E5C07B"
-
-# Blue
-export COLOR_BLUE1="0xFF61AFEF"
-export COLOR_BLUE2="0xBF61AFEF"
-export COLOR_BLUE3="0x8061AFEF"
-export COLOR_BLUE4="0x4061AFEF"
-
-# Green
-export COLOR_GREEN1="0xFF98C379"
-export COLOR_GREEN2="0xBF98C379"
-export COLOR_GREEN3="0x8098C379"
-export COLOR_GREEN4="0x4098C379"
-
-# Magenta
-export COLOR_MAGENTA1="0xFFC678DD"
-export COLOR_MAGENTA2="0xBFC678DD"
-export COLOR_MAGENTA3="0x80C678DD"
-export COLOR_MAGENTA4="0x40C678DD"
-
-# Cyan
-export COLOR_CYAN1="0xFF56B6C2"
-export COLOR_CYAN2="0xBF56B6C2"
-export COLOR_CYAN3="0x8056B6C2"
-export COLOR_CYAN4="0x4056B6C2"
-
-# White
-export COLOR_WHITE1="0xFFABB2BF"
-export COLOR_WHITE2="0xBFABB2BF"
-export COLOR_WHITE3="0x80ABB2BF"
-export COLOR_WHITE4="0x40ABB2BF"
-
-# Black
-export COLOR_BLACK1="0xFF282C34"
-export COLOR_BLACK2="0xBF282C34"
-export COLOR_BLACK3="0x80282C34"
-export COLOR_BLACK4="0x40282C34"
-
-# Tangerine
-export COLOR_TANGERINE1="0xFFFF9E64"
-export COLOR_TANGERINE2="0xBFFF9E64"
-export COLOR_TANGERINE3="0x80FF9E64"
-export COLOR_TANGERINE4="0x40FF9E64"
-
-# Orange
-export COLOR_ORANGE1="0xFFD19A66"
-export COLOR_ORANGE2="0xBFD19A66"
-export COLOR_ORANGE3="0x80D19A66"
-export COLOR_ORANGE4="0x40D19A66"
+if [ -f "$THEME_FILE" ]; then
+  source "$THEME_FILE"
+else
+  source "$CONFIG_DIR/tokens/themes/onedark.sh"
+fi

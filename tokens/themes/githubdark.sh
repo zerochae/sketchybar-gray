@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# GitHub Dark Theme
+# https://github.com/primer/github-vscode-theme
+
+source "$CONFIG_DIR/tokens/helpers.sh"
+
+export COLOR_WHITE="0xFFc9d1d9"
+export COLOR_BLACK="0xFF24292E"
+export COLOR_TRANSPARENT="0x00ffffff"
+export COLOR_LIGHT_GRAY="0xFF768390"
+export COLOR_DARK_GRAY="0xFF42474c"
+
+generate_alpha_variants "BG1" "0xFF24292E"
+generate_alpha_variants "BG2" "0xFF2d333b"
+
+generate_alpha_variants "RED" "0xFFff7f8d"
+generate_alpha_variants "YELLOW" "0xFFffdf5d"
+generate_alpha_variants "BLUE" "0xFF6AB1F0"
+generate_alpha_variants "GREEN" "0xFFa5d6ff"
+generate_alpha_variants "MAGENTA" "0xFFB392E9"
+generate_alpha_variants "CYAN" "0xFF83caff"
+generate_alpha_variants "ORANGE" "0xFFffab70"
+generate_alpha_variants "TANGERINE" "0xFFffab70"
+
+export SBAR_DEFAULT_ICON_COLOR="$COLOR_WHITE"
+export SBAR_DEFAULT_LABEL_COLOR="$COLOR_WHITE"
+export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
+
+export SBAR_COLOR_CLOCK="$COLOR_YELLOW1"
+export SBAR_COLOR_WEATHER="$COLOR_CYAN1"
+export SBAR_COLOR_CAFFEINATE="$COLOR_GREEN1"
+export SBAR_COLOR_VOLUME="$COLOR_BLUE1"
+export SBAR_COLOR_BATTERY="$COLOR_ORANGE1"
+export SBAR_COLOR_DISK="0xFFffa198"
+export SBAR_COLOR_RAM="$COLOR_MAGENTA1"
+export SBAR_COLOR_CPU="$COLOR_BLUE1"
+export SBAR_COLOR_NETSTAT="$COLOR_TANGERINE1"
+export SBAR_COLOR_FRONT_APP="$COLOR_GREEN1"
+export SBAR_COLOR_SPACE="0xFF373e47"
+export SBAR_COLOR_SPACE_BORDER="$COLOR_GREEN1"

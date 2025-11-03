@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/tokens/colors.sh"
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
 CONFIG_ICON=$(get_system_icon "config")
@@ -23,11 +24,12 @@ sketchybar --add item config right \
   popup.padding_left="$SBAR_POPUP_PADDING_LEFT" \
   popup.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   popup.y_offset=8 \
-  popup.background.color="$COLOR_BG2" \
+  popup.background.color="$COLOR_BG1" \
   popup.background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   popup.background.border_width=1 \
   popup.background.border_color="$COLOR_DARK_GRAY" \
   popup.background.shadow.drawing=on \
+  popup.background.drawing=on \
   click_script="sketchybar --set config popup.drawing=toggle"
 
 sketchybar --add item config.category_font popup.config \
@@ -93,6 +95,14 @@ sketchybar --add item config.category_widget popup.config \
   background.height=20 \
   background.corner_radius=4 \
   click_script=""
+
+sketchybar --add item config.theme popup.config \
+  --set config.theme \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Theme" \
+  click_script="$SBAR_PLUGIN_DIR/config/theme.sh"
 
 sketchybar --add item config.clock_format popup.config \
   --set config.clock_format \

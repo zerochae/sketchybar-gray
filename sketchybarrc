@@ -3,12 +3,21 @@
 # ---------- assets, env ----------
 SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
 SBAR_ITEM_DIR="$CONFIG_DIR/items"
-source "$CONFIG_DIR/tokens/colors.sh"
 
 # ---------- user config override (load early) ----------
 USER_CONFIG="$CONFIG_DIR/user.sketchybarrc"
 if [ -f "$USER_CONFIG" ]; then
   source "$USER_CONFIG"
+fi
+
+# ---------- theme ----------
+export SBAR_THEME="${SBAR_THEME:-onedark}"
+THEME_FILE="$CONFIG_DIR/tokens/themes/$SBAR_THEME.sh"
+if [ -f "$THEME_FILE" ]; then
+  source "$THEME_FILE"
+else
+  echo "Theme not found: $SBAR_THEME, using onedark"
+  source "$CONFIG_DIR/tokens/themes/onedark.sh"
 fi
 
 # ========== Fonts ==========
@@ -55,18 +64,7 @@ export SBAR_ITEM_UPDATE_FREQ_FAST=2
 export SBAR_ITEM_UPDATE_FREQ_SLOW=30
 
 # ========== Widget Colors ==========
-export SBAR_COLOR_CLOCK="$COLOR_YELLOW1"
-export SBAR_COLOR_WEATHER="$COLOR_CYAN1"
-export SBAR_COLOR_CAFFEINATE="$COLOR_GREEN2"
-export SBAR_COLOR_VOLUME="$COLOR_BLUE2"
-export SBAR_COLOR_BATTERY="$COLOR_ORANGE1"
-export SBAR_COLOR_DISK="$COLOR_RED1"
-export SBAR_COLOR_RAM="$COLOR_MAGENTA1"
-export SBAR_COLOR_CPU="$COLOR_BLUE1"
-export SBAR_COLOR_NETSTAT="$COLOR_TANGERINE1"
-export SBAR_COLOR_FRONT_APP="$COLOR_GREEN1"
-export SBAR_COLOR_SPACE="$COLOR_BG2_75"
-export SBAR_COLOR_SPACE_BORDER="$COLOR_GREEN3"
+# Widget colors are now defined in theme files
 
 # ========== Widget List ==========
 export SBAR_WIDGETS_LEFT=(
