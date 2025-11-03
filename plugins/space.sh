@@ -31,26 +31,14 @@ else
   LABEL_DRAWING=off
 fi
 
-if [ "$THEME_TYPE" = "light" ]; then
-  if [ "$SELECTED" = "true" ]; then
-    ICON_COLOR="$COLOR_WHITE"
-    LABEL_COLOR="$COLOR_WHITE"
-    BG_COLOR="$COLOR_GREEN"
-  else
-    ICON_COLOR="$COLOR_BLACK"
-    LABEL_COLOR="$COLOR_BLACK"
-    BG_COLOR="$COLOR_BG2_75"
-  fi
+if [ "$SELECTED" = "true" ]; then
+  ICON_COLOR="$COLOR_DARK_GRAY"
+  LABEL_COLOR="$COLOR_DARK_GRAY"
+  BG_COLOR="$COLOR_GREEN"
 else
-  if [ "$SELECTED" = "true" ]; then
-    ICON_COLOR="$COLOR_BLACK"
-    LABEL_COLOR="$COLOR_BLACK"
-    BG_COLOR="$COLOR_GREEN"
-  else
-    ICON_COLOR="$COLOR_LIGHT_GRAY"
-    LABEL_COLOR="$COLOR_LIGHT_GRAY"
-    BG_COLOR="$COLOR_BG2_75"
-  fi
+  ICON_COLOR="$COLOR_LIGHT_GRAY"
+  LABEL_COLOR="$COLOR_LIGHT_GRAY"
+  BG_COLOR="$COLOR_BG2_75"
 fi
 
 sketchybar --set "$NAME" \
