@@ -1,4 +1,5 @@
-<img alt="SCR-20251031-imxz" src="https://github.com/user-attachments/assets/649aedcf-0f84-4033-b245-f15b7d19ef06" />
+
+<img width="2048" height="71" alt="SCR-20251103-phlv" src="https://github.com/user-attachments/assets/4b806854-3ade-498f-9a55-733078355551" />
 
 # Sketchybar Configuration
 
