@@ -1,5 +1,6 @@
 
-<img width="2048" height="71" alt="SCR-20251103-phlv" src="https://github.com/user-attachments/assets/4b806854-3ade-498f-9a55-733078355551" />
+<img width="2304" height="1296" alt="스크린샷 2025-11-04 08 35 13" src="https://github.com/user-attachments/assets/3223a98d-5b1f-4399-9466-57219f5e0ac4" />
+
 
 # Sketchybar Configuration
 
