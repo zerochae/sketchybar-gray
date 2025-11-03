@@ -12,7 +12,7 @@ sketchybar --add item config right \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \
   label.drawing=off \
-  background.color="$COLOR_BLUE1" \
+  background.color="$COLOR_BLUE" \
   background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   background.height="$SBAR_ITEM_BG_HEIGHT" \
   background.border_width=0 \
@@ -149,6 +149,6 @@ sketchybar --add item config.reload popup.config \
   icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
   label="Reload Config" \
-  icon.color="$COLOR_GREEN1" \
-  label.color="$COLOR_GREEN1" \
+  icon.color="$COLOR_GREEN" \
+  label.color="$COLOR_GREEN" \
   click_script="sketchybar --reload"
