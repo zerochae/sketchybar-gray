@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Sketchybar environment variables
+: "${NAME:=}"
+: "${SID:=}"
+
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 source "$CONFIG_DIR/env.sh"
 source "$CONFIG_DIR/plugins/app_icon.sh"
@@ -18,7 +22,7 @@ fi
 ICONS=""
 if [ -n "$APPS" ]; then
   while IFS= read -r app; do
-    [ -n "$app" ] && ICONS="$ICONS$(get_icon "$app") "
+    [ -n "$app" ] && ICONS="$ICONS$(get_app_icon "$app") "
   done <<<"$APPS"
   ICONS="${ICONS% }"
 fi

@@ -18,14 +18,14 @@ get_speed_bar() {
   local max_speed=409600
 
   local bars=(
-    "$(get_icon_from_json "block-1" false)"
-    "$(get_icon_from_json "block-2" false)"
-    "$(get_icon_from_json "block-3" false)"
-    "$(get_icon_from_json "block-4" false)"
-    "$(get_icon_from_json "block-5" false)"
-    "$(get_icon_from_json "block-6" false)"
-    "$(get_icon_from_json "block-7" false)"
-    "$(get_icon_from_json "block-8" false)"
+    "$(get_system_icon "block-1")"
+    "$(get_system_icon "block-2")"
+    "$(get_system_icon "block-3")"
+    "$(get_system_icon "block-4")"
+    "$(get_system_icon "block-5")"
+    "$(get_system_icon "block-6")"
+    "$(get_system_icon "block-7")"
+    "$(get_system_icon "block-8")"
   )
 
   local history_file="/tmp/sketchybar_netstat_${direction}"

@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-KAKAO_ICON=$(get_icon "KakaoTalk")
+KAKAO_ICON=$(get_app_icon "KakaoTalk")
 
 sketchybar --add item kakaotalk.badge right \
   --set kakaotalk.badge \

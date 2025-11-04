@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/icons/system.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-DISK_ICON=$(get_system_icon "disk")
+DISK_ICON=$(get_system_icon "fa-hdd_o")
 
 sketchybar --add item disk.percent right \
   --set disk.percent \

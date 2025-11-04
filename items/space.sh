@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Sketchybar environment variables
+: "${SBAR_PLUGIN_DIR:=}"
+
 if command -v yabai >/dev/null 2>&1; then
   source "$SBAR_PLUGIN_DIR/yabai.sh"
   SUBSCRIBE_EVENTS="front_app_switched space_change"
@@ -36,7 +39,7 @@ for sid in $workspaces; do
     padding_right=4 \
     script="$SBAR_PLUGIN_DIR/space.sh" \
     click_script="$CLICK_SCRIPT" \
-    --subscribe "space.$sid" $SUBSCRIBE_EVENTS
+    --subscribe "space.$sid" "$SUBSCRIBE_EVENTS"
 done
 
 sketchybar --set "space.$first_workspace" padding_left=2

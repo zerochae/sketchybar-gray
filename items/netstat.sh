@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/icons/system.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-DOWN_ICON=$(get_system_icon "network_down")
-UP_ICON=$(get_system_icon "network_up")
+DOWN_ICON=$(get_system_icon "fa-cloud_upload")
+UP_ICON=$(get_system_icon "fa-cloud_download")
 
 BRACKET_ITEMS=()
 

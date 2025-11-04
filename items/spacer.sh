@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Sketchybar environment variables
+: "${NAME:=}"
+
 NAME=$1
 
 if [ -z "$NAME" ]; then

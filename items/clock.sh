@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/icons/system.sh"
 
-CLOCK_ICON=$(get_system_icon "clock")
+CLOCK_ICON=$(get_system_icon "fa-clock")
 
 sketchybar --add item clock.label right \
 	--set clock.label \

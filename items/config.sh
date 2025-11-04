@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/tokens/colors.sh"
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/icons/system.sh"
 
-CONFIG_ICON=$(get_system_icon "config")
+CONFIG_ICON=$(get_system_icon "seti-config")
 
 if [ "$SBAR_CONFIG_VISIBLE" = "false" ]; then
   CONFIG_ICON_COLOR="$COLOR_TRANSPARENT"

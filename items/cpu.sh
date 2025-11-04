@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/icons/system.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-CPU_ICON=$(get_system_icon "cpu")
+CPU_ICON=$(get_system_icon "fae-chip")
 
 BRACKET_ITEMS=()
 
