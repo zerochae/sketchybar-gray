@@ -3,8 +3,8 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-DOWN_ICON=$(get_widget_icon "fa-cloud_upload")
-UP_ICON=$(get_widget_icon "fa-cloud_download")
+DOWN_ICON=$(get_widget_icon "network_upload")
+UP_ICON=$(get_widget_icon "network_download")
 
 BRACKET_ITEMS=()
 

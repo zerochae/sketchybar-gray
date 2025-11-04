@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-CPU_ICON=$(get_widget_icon "fae-chip")
+CPU_ICON=$(get_widget_icon "cpu")
 
 BRACKET_ITEMS=()
 

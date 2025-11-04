@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-VOLUME_ICON=$(get_widget_icon "md-volume_mute")
+VOLUME_ICON=$(get_widget_icon "volume_mute")
 
 sketchybar --add item volume.label right \
   --set volume.label \

@@ -2,7 +2,7 @@
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-LOADING_ICON=$(get_widget_icon "fa-hourglass_half")
+LOADING_ICON=$(get_widget_icon "loading")
 
 sketchybar --add item weather.label right \
   --set weather.label \

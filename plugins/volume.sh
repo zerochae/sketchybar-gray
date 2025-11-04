@@ -6,17 +6,17 @@ VOLUME=$(osascript -e "output volume of (get volume settings)")
 MUTED=$(osascript -e "output muted of (get volume settings)")
 
 if [ "$MUTED" = "true" ]; then
-  ICON=$(get_widget_icon "md-volume_mute")
+  ICON=$(get_widget_icon "volume_mute")
   LABEL="Muted"
 else
   if [ "$VOLUME" -gt 66 ]; then
-    ICON=$(get_widget_icon "fa-volume_up")
+    ICON=$(get_widget_icon "volume_high")
   elif [ "$VOLUME" -gt 33 ]; then
-    ICON=$(get_widget_icon "fa-volume_down")
+    ICON=$(get_widget_icon "volume_medium")
   elif [ "$VOLUME" -gt 0 ]; then
-    ICON=$(get_widget_icon "fa-volume_off")
+    ICON=$(get_widget_icon "volume_low")
   else
-    ICON=$(get_widget_icon "md-volume_mute")
+    ICON=$(get_widget_icon "volume_mute")
   fi
   LABEL="${VOLUME}%"
 fi

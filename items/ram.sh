@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-RAM_ICON=$(get_widget_icon "md-memory")
+RAM_ICON=$(get_widget_icon "memory")
 
 BRACKET_ITEMS=()
 

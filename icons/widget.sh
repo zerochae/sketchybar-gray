@@ -35,76 +35,76 @@ function __widget_icon_map() {
         icon_result="█"
         ;;
 
-    "fa-battery_1")
-        icon_result=""
+    "battery_empty")
+        icon_result=""
         ;;
 
-    "fa-battery_2")
-        icon_result=""
+    "battery_low")
+        icon_result=""
         ;;
 
-    "fa-battery_3")
-        icon_result=""
+    "battery_medium")
+        icon_result=""
         ;;
 
-    "fa-battery_4")
-        icon_result=""
+    "battery_full")
+        icon_result=""
         ;;
 
-    "fa-clock")
-        icon_result=""
+    "clock")
+        icon_result=""
         ;;
 
-    "fa-cloud_download")
-        icon_result=""
+    "network_download")
+        icon_result=""
         ;;
 
-    "fa-cloud_upload")
-        icon_result=""
+    "network_upload")
+        icon_result=""
         ;;
 
-    "fa-hdd_o")
-        icon_result=""
+    "disk")
+        icon_result=""
         ;;
 
-    "fa-hourglass_half")
-        icon_result=""
+    "loading")
+        icon_result=""
         ;;
 
-    "fa-volume_down")
-        icon_result=""
+    "volume_medium")
+        icon_result=""
         ;;
 
-    "fa-volume_off")
-        icon_result=""
+    "volume_low")
+        icon_result=""
         ;;
 
-    "fa-volume_up")
-        icon_result=""
+    "volume_high")
+        icon_result=""
         ;;
 
-    "fae-chip")
-        icon_result=""
+    "cpu")
+        icon_result=""
         ;;
 
-    "md-coffee")
+    "coffee_on")
         icon_result="󰅶"
         ;;
 
-    "md-memory")
+    "memory")
         icon_result="󰍛"
         ;;
 
-    "md-tea")
+    "coffee_off")
         icon_result="󰶞"
         ;;
 
-    "md-volume_mute")
+    "volume_mute")
         icon_result="󰝟"
         ;;
 
-    "seti-config")
-        icon_result=""
+    "config")
+        icon_result=""
         ;;
 
     *)
