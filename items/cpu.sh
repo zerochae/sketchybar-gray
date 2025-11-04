@@ -10,9 +10,9 @@ BRACKET_ITEMS=()
 if [ "$SBAR_CPU_SHOW_GRAPH" = true ]; then
   sketchybar --add graph cpu.graph right 42 \
     --set cpu.graph \
-    graph.color="$COLOR_BLACK_25" \
+    graph.color="$COLOR_BLUE_75" \
     graph.fill_color="$COLOR_BLACK_25" \
-    background.height=50 \
+    background.height=22 \
     background.color=0x00000000 \
     background.border_color=0x00000000 \
     background.drawing=on \

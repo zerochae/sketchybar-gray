@@ -5,17 +5,14 @@ source "$CONFIG_DIR/tokens/colors.sh"
 total_mem_bytes=$(sysctl -n hw.memsize)
 page_size=$(sysctl -n vm.pagesize)
 
-read -r free_pages inactive_pages speculative_pages <<EOF
+read -r active_pages wired_pages <<EOF
    $(vm_stat | awk '
-        /Pages free/       {free=$3}
-        /Pages inactive/   {inactive=$3}
-        /Pages speculative/{speculative=$3}
-        END {print free, inactive, speculative}' | tr -d '.')
+        /Pages active/     {active=$3}
+        /Pages wired/      {wired=$4}
+        END {print active, wired}' | tr -d '.')
 EOF
 
-non_active_pages=$((free_pages + inactive_pages + speculative_pages))
-non_active_mem_bytes=$((non_active_pages * page_size))
-used_mem_bytes=$((total_mem_bytes - non_active_mem_bytes))
+used_mem_bytes=$(((active_pages + wired_pages) * page_size))
 
 if [ "$total_mem_bytes" -gt 0 ]; then
   used_mem_percentage=$((used_mem_bytes * 100 / total_mem_bytes))
@@ -31,7 +28,7 @@ fi
 if [ "$SBAR_RAM_SHOW_GRAPH" = true ]; then
   LOAD_NORMALIZED=$(echo "scale=2; $used_mem_percentage / 100" | bc)
   sketchybar --push ram.graph "$LOAD_NORMALIZED" \
-             --set ram.graph graph.color="$COLOR_BLACK_50" label="${used_mem_percentage}%"
+             --set ram.graph graph.color="$COLOR_MAGENTA_75" graph.fill_color="$COLOR_BLACK_25" label="${used_mem_percentage}%"
 elif [ "$SBAR_RAM_SHOW_PERCENT" = true ]; then
   sketchybar --set ram.percent label="${used_mem_percentage}%"
 fi

@@ -10,9 +10,9 @@ BRACKET_ITEMS=()
 if [ "$SBAR_RAM_SHOW_GRAPH" = true ]; then
   sketchybar --add graph ram.graph right 42 \
     --set ram.graph \
-    graph.color="$COLOR_BLACK_25" \
-    graph.fill_color="$COLOR_BLACK_25" \
-    background.height=50 \
+    graph.color="$COLOR_RED" \
+    graph.fill_color="$COLOR_MAGENTA_75" \
+    background.height=22 \
     background.color=0x00000000 \
     background.border_color=0x00000000 \
     background.drawing=on \
