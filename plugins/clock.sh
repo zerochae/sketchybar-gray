@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/plugins/config/helpers.sh"
+
 if [ -z "$SBAR_CLOCK_FORMAT" ]; then
-  SBAR_CLOCK_FORMAT=$(grep "^export SBAR_CLOCK_FORMAT=" "$CONFIG_DIR/sketchybarrc" | sed 's/^export SBAR_CLOCK_FORMAT="\(.*\)"/\1/')
+  SBAR_CLOCK_FORMAT=$(get_config_value "SBAR_CLOCK_FORMAT")
 fi
 
-format="${SBAR_CLOCK_FORMAT:-DD/MM HH:mm}"
+format="${SBAR_CLOCK_FORMAT:-MM/DD HH:mm}"
 
 format="${format//YYYY/__Y4__}"
+format="${format//yyyy/__Y4__}"
 format="${format//YY/__Y2__}"
+format="${format//yy/__Y2__}"
 format="${format//MM/__MO__}"
 format="${format//DD/__D__}"
+format="${format//dd/__D__}"
 format="${format//HH/__H24__}"
 format="${format//hh/__H12__}"
 format="${format//mm/__m__}"

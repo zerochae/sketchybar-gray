@@ -7,7 +7,7 @@ sketchybar --set config popup.drawing=off
 CURRENT=$(get_config_value "SBAR_CLOCK_FORMAT")
 
 RESULT=$(osascript <<EOF
-set formats to {"MM/DD HH:mm", "HH:mm", "yyyy-MM-DD HH:mm:ss", "HH:mm:ss", "Custom..."}
+set formats to {"MM/DD HH:mm", "HH:mm", "YYYY-MM-DD HH:mm:ss", "HH:mm:ss", "Custom..."}
 set currentFormat to "$CURRENT"
 set choice to choose from list formats with prompt "Select clock format:" default items {currentFormat}
 if choice is false then
