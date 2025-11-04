@@ -100,6 +100,12 @@ Update to the latest version with a single command:
 curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/update.sh | bash
 ```
 
+Or specify a custom directory:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/update.sh | bash -s /path/to/sketchybar
+```
+
 ### Manual Update
 
 Navigate to your sketchybar config directory and run the update script:
@@ -107,6 +113,12 @@ Navigate to your sketchybar config directory and run the update script:
 ```bash
 cd ~/.config/sketchybar
 ./update.sh
+```
+
+Or specify a custom directory:
+
+```bash
+./update.sh /path/to/sketchybar
 ```
 
 Or use git directly:
