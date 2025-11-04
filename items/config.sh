@@ -5,6 +5,13 @@ source "$CONFIG_DIR/plugins/app_icon.sh"
 
 CONFIG_ICON=$(get_system_icon "config")
 
+CONFIG_VISIBLE="${SBAR_CONFIG_VISIBLE:-true}"
+if [ "$CONFIG_VISIBLE" = "false" ]; then
+  CONFIG_DRAWING="off"
+else
+  CONFIG_DRAWING="on"
+fi
+
 sketchybar --add item config right \
   --set config \
   icon="$CONFIG_ICON" \
@@ -16,7 +23,7 @@ sketchybar --add item config right \
   background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   background.height="$SBAR_ITEM_BG_HEIGHT" \
   background.border_width=0 \
-  background.drawing=on \
+  background.drawing="$CONFIG_DRAWING" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
   popup.align=right \
@@ -150,6 +157,15 @@ sketchybar --add item config.netstat_speed popup.config \
   label="Netstat Speed" \
   label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/netstat_speed.sh"
+
+sketchybar --add item config.config_visible popup.config \
+  --set config.config_visible \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Config Item Visible" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  click_script="$SBAR_PLUGIN_DIR/config/config_visible.sh"
 
 sketchybar --add item config.separator3 popup.config \
   --set config.separator3 \

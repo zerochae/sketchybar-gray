@@ -81,7 +81,6 @@ export SBAR_WIDGETS_CENTER=(
 )
 
 export SBAR_WIDGETS_RIGHT=(
-  "config"
   "clock"
   "weather"
   "caffeinate"
@@ -90,6 +89,7 @@ export SBAR_WIDGETS_RIGHT=(
   "disk"
   "ram"
   "cpu"
+  "config"
   # "netstat"
 )
 
@@ -104,6 +104,7 @@ export SBAR_CPU_SHOW_PERCENT=true
 export SBAR_RAM_SHOW_GRAPH=true
 export SBAR_RAM_SHOW_PERCENT=true
 export SBAR_WEATHER_LOCATION="Seoul"
+export SBAR_CONFIG_VISIBLE="${SBAR_CONFIG_VISIBLE:-false}"
 
 # ---------- default & bar ----------
 sketchybar \
