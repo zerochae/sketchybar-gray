@@ -3,13 +3,7 @@
 source "$CONFIG_DIR/tokens/colors.sh"
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-USER_CONFIG="$HOME/.config/sketchybar/user.sketchybarrc"
-if [ -f "$USER_CONFIG" ]; then
-  source "$USER_CONFIG"
-fi
-
-SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
-SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-24.0}"
+SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
 BG_HEIGHT=24
 
 if command -v yabai >/dev/null 2>&1; then
@@ -73,7 +67,7 @@ fi
 
 sketchybar --set "$NAME" \
   icon="$ICONS" \
-  icon.font="$SBAR_APP_ICON_FONT:Regular:$ICON_SIZE" \
+  icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \
   icon.padding_left="$ICON_PADDING" \
   icon.padding_right="$ICON_PADDING" \
   icon.color="$ICON_COLOR" \

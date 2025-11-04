@@ -19,7 +19,7 @@ sketchybar --add item config right \
   icon="$CONFIG_ICON" \
   icon.color="$CONFIG_ICON_COLOR" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
-  icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \
+  icon.padding_right=6 \
   label.drawing=off \
   background.color="$COLOR_BLUE" \
   background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
@@ -167,6 +167,15 @@ sketchybar --add item config.config_visible popup.config \
   label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/config_visible.sh"
 
+sketchybar --add item config.widgets_right popup.config \
+  --set config.widgets_right \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Right Widgets" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  click_script="$SBAR_PLUGIN_DIR/config/widgets_right.sh"
+
 sketchybar --add item config.separator3 popup.config \
   --set config.separator3 \
   icon= \
@@ -184,3 +193,14 @@ sketchybar --add item config.reload popup.config \
   icon.color="$COLOR_GREEN" \
   label.color="$COLOR_GREEN" \
   click_script="sketchybar --reload"
+
+sketchybar --add item config.reset popup.config \
+  --set config.reset \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Reset to Default" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  icon.color="$COLOR_RED" \
+  label.color="$COLOR_RED" \
+  click_script="$SBAR_PLUGIN_DIR/config/reset.sh"

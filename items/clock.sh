@@ -8,7 +8,7 @@ sketchybar --add item clock.label right \
 	--set clock.label \
 		label.color="$COLOR_BLACK" \
 		label.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
-		update_freq="$SBAR_ITEM_UPDATE_FREQ_DEFAULT" \
+		update_freq=1 \
 		script="$SBAR_PLUGIN_DIR/clock.sh"
 
 sketchybar --add item clock.icon right \
