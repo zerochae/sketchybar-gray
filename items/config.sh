@@ -5,8 +5,7 @@ source "$CONFIG_DIR/plugins/app_icon.sh"
 
 CONFIG_ICON=$(get_system_icon "config")
 
-CONFIG_VISIBLE="${SBAR_CONFIG_VISIBLE:-true}"
-if [ "$CONFIG_VISIBLE" = "false" ]; then
+if [ "$SBAR_CONFIG_VISIBLE" = "false" ]; then
   CONFIG_ICON_COLOR="$COLOR_TRANSPARENT"
   CONFIG_BG_DRAWING="off"
 else

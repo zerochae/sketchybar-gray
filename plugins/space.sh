@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/tokens/colors.sh"
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+source "$CONFIG_DIR/env.sh"
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
 BG_HEIGHT=24
 
 if command -v yabai >/dev/null 2>&1; then

@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/config/helpers.sh"
-
-if [ -z "$SBAR_CLOCK_FORMAT" ]; then
-  SBAR_CLOCK_FORMAT=$(get_config_value "SBAR_CLOCK_FORMAT")
-fi
-
 format="${SBAR_CLOCK_FORMAT:-MM/DD HH:mm}"
 
 format="${format//YYYY/__Y4__}"

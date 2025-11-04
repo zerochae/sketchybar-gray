@@ -1,95 +1,11 @@
 #!/usr/bin/env bash
 
 # ---------- assets, env ----------
-SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
-SBAR_ITEM_DIR="$CONFIG_DIR/items"
+export SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
+export SBAR_ITEM_DIR="$CONFIG_DIR/items"
 
-# ---------- user config override (load early) ----------
-USER_CONFIG="$CONFIG_DIR/user.sketchybarrc"
-if [ -f "$USER_CONFIG" ]; then
-  source "$USER_CONFIG"
-fi
-
-# ---------- theme ----------
-export SBAR_THEME="${SBAR_THEME:-onedark}"
-THEME_FILE="$CONFIG_DIR/tokens/themes/$SBAR_THEME.sh"
-if [ -f "$THEME_FILE" ]; then
-  source "$THEME_FILE"
-else
-  echo "Theme not found: $SBAR_THEME, using onedark"
-  source "$CONFIG_DIR/tokens/themes/onedark.sh"
-fi
-
-# ========== Default Colors ==========
-export SBAR_DEFAULT_ICON_COLOR="${SBAR_DEFAULT_ICON_COLOR:-$COLOR_WHITE}"
-export SBAR_DEFAULT_LABEL_COLOR="${SBAR_DEFAULT_LABEL_COLOR:-$COLOR_WHITE}"
-export SBAR_BAR_COLOR="${SBAR_BAR_COLOR:-$COLOR_TRANSPARENT}"
-
-# ========== Widget Colors (defaults) ==========
-export SBAR_COLOR_CLOCK="${SBAR_COLOR_CLOCK:-$COLOR_YELLOW}"
-export SBAR_COLOR_WEATHER="${SBAR_COLOR_WEATHER:-$COLOR_CYAN}"
-export SBAR_COLOR_CAFFEINATE="${SBAR_COLOR_CAFFEINATE:-$COLOR_GREEN}"
-export SBAR_COLOR_VOLUME="${SBAR_COLOR_VOLUME:-$COLOR_BLUE}"
-export SBAR_COLOR_BATTERY="${SBAR_COLOR_BATTERY:-$COLOR_ORANGE}"
-export SBAR_COLOR_DISK="${SBAR_COLOR_DISK:-$COLOR_RED}"
-export SBAR_COLOR_RAM="${SBAR_COLOR_RAM:-$COLOR_MAGENTA}"
-export SBAR_COLOR_CPU="${SBAR_COLOR_CPU:-$COLOR_BLUE}"
-export SBAR_COLOR_NETSTAT="${SBAR_COLOR_NETSTAT:-$COLOR_TANGERINE}"
-export SBAR_COLOR_KAKAOTALK="${SBAR_COLOR_KAKAOTALK:-$COLOR_YELLOW}"
-export SBAR_COLOR_FRONT_APP="${SBAR_COLOR_FRONT_APP:-$COLOR_GREEN}"
-export SBAR_COLOR_SPACE="${SBAR_COLOR_SPACE:-0xFF24242f}"
-export SBAR_COLOR_SPACE_BORDER="${SBAR_COLOR_SPACE_BORDER:-$COLOR_GREEN}"
-
-# ========== Fonts ==========
-export SBAR_LABEL_FONT_FAMILY="${SBAR_LABEL_FONT_FAMILY:-SpaceMono Nerd Font Mono}"
-export SBAR_ICON_FONT_FAMILY="${SBAR_ICON_FONT_FAMILY:-$SBAR_LABEL_FONT_FAMILY}"
-
-export SBAR_ICON_FONT_FACE_REGULAR="${SBAR_ICON_FONT_FAMILY}:Regular"
-export SBAR_ICON_FONT_FACE_BOLD="${SBAR_ICON_FONT_FAMILY}:Bold"
-export SBAR_LABEL_FONT_FACE_REGULAR="${SBAR_LABEL_FONT_FAMILY}:Regular"
-export SBAR_LABEL_FONT_FACE_BOLD="${SBAR_LABEL_FONT_FAMILY}:Bold"
-
-export SBAR_ICON_FONT_SIZE="${SBAR_ICON_FONT_SIZE:-18.0}"
-export SBAR_LABEL_FONT_SIZE="${SBAR_LABEL_FONT_SIZE:-12.0}"
-
-export SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
-export SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
-
-# ========== Bar Settings ==========
-export SBAR_BAR_HEIGHT=56
-export SBAR_BAR_POSITION="top"
-export SBAR_BAR_BACKGROUND="${SBAR_BAR_BACKGROUND:-transparent}"
-if [ "$SBAR_BAR_BACKGROUND" = "bg1" ]; then
-  export SBAR_BAR_COLOR="$COLOR_BG1"
-else
-  export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
-fi
-
-# ========== Default Colors ==========
-export SBAR_DEFAULT_ICON_COLOR="$COLOR_WHITE"
-export SBAR_DEFAULT_LABEL_COLOR="$COLOR_WHITE"
-
-# ========== Item Settings ==========
-export SBAR_ITEM_BG_HEIGHT=24
-export SBAR_ITEM_BG_CORNER_RADIUS=4
-export SBAR_ITEM_BG_BORDER_WIDTH=1
-
-export SBAR_ITEM_ICON_PADDING_LEFT=8
-export SBAR_ITEM_ICON_PADDING_RIGHT=4
-export SBAR_ITEM_LABEL_PADDING_LEFT=0
-export SBAR_ITEM_LABEL_PADDING_RIGHT=8
-
-export SBAR_POPUP_ICON_PADDING_LEFT=12
-export SBAR_POPUP_ICON_PADDING_RIGHT=8
-export SBAR_POPUP_PADDING_LEFT=8
-export SBAR_POPUP_PADDING_RIGHT=12
-
-export SBAR_ITEM_UPDATE_FREQ_DEFAULT=10
-export SBAR_ITEM_UPDATE_FREQ_FAST=2
-export SBAR_ITEM_UPDATE_FREQ_SLOW=30
-
-# ========== Widget Colors ==========
-# Widget colors are now defined in theme files
+# ---------- load environment variables ----------
+source "$CONFIG_DIR/env.sh"
 
 # ========== Widget List ==========
 if [ -n "$SBAR_WIDGETS_LEFT_ENABLED" ]; then
@@ -126,17 +42,6 @@ else
 fi
 
 export SBAR_AUTO_INSERT_SPACER=true
-
-# ========== Display Options ==========
-export SBAR_CLOCK_FORMAT="MM/DD HH:mm"
-export SBAR_NETSTAT_SHOW_GRAPH=true
-export SBAR_NETSTAT_SHOW_SPEED=false
-export SBAR_CPU_SHOW_GRAPH=true
-export SBAR_CPU_SHOW_PERCENT=true
-export SBAR_RAM_SHOW_GRAPH=true
-export SBAR_RAM_SHOW_PERCENT=true
-export SBAR_WEATHER_LOCATION="Seoul"
-export SBAR_CONFIG_VISIBLE="${SBAR_CONFIG_VISIBLE:-false}"
 
 # ---------- default & bar ----------
 sketchybar \
