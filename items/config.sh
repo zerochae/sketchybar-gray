@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/tokens/colors.sh"
-source "$CONFIG_DIR/icons/system.sh"
+source "$CONFIG_DIR/plugins/app_icon.sh"
 
 CONFIG_ICON=$(get_system_icon "seti-config")
 
