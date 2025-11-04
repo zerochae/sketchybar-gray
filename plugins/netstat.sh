@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/tokens/colors.sh"
 
 cleanup() {
   if [ -n "$netstat_pid" ]; then
@@ -101,26 +102,21 @@ format_speed() {
 down_speed=$(format_speed "$speed_in")
 up_speed=$(format_speed "$speed_out")
 
-down_label=""
-up_label=""
-
-if [ "$SBAR_NETSTAT_SHOW_SPEED" = true ]; then
-  down_label="$down_speed"
-  up_label="$up_speed"
-fi
-
 if [ "$SBAR_NETSTAT_SHOW_GRAPH" = true ]; then
-  down_bar=$(get_speed_bar "$speed_in" "down")
-  up_bar=$(get_speed_bar "$speed_out" "up")
+  max_speed=512000
 
-  if [ "$SBAR_NETSTAT_SHOW_SPEED" = true ]; then
-    down_label="$down_label $down_bar"
-    up_label="$up_label $up_bar"
-  else
-    down_label="$down_bar"
-    up_label="$up_bar"
-  fi
+  down_normalized=$(echo "scale=4; $speed_in / $max_speed" | bc)
+  down_clamped=$(echo "if ($down_normalized > 1) 1 else $down_normalized" | bc)
+
+  up_normalized=$(echo "scale=4; $speed_out / $max_speed" | bc)
+  up_clamped=$(echo "if ($up_normalized > 1) 1 else $up_normalized" | bc)
+
+  sketchybar --push netstat.down.graph "$down_clamped" \
+             --set netstat.down.graph graph.color="$COLOR_BLACK_50" label="$down_speed"
+
+  sketchybar --push netstat.up.graph "$up_clamped" \
+             --set netstat.up.graph graph.color="$COLOR_BLACK_50" label="$up_speed"
+elif [ "$SBAR_NETSTAT_SHOW_SPEED" = true ]; then
+  sketchybar --set netstat.down.label label="$down_speed"
+  sketchybar --set netstat.up.label label="$up_speed"
 fi
-
-sketchybar --set netstat.down.label label="$down_label"
-sketchybar --set netstat.up.label label="$up_label"
