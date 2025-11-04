@@ -38,24 +38,6 @@ get_system_icon() {
   "disk")
     icon=$(get_icon_from_json "fa-hdd_o")
     ;;
-  "weather")
-    icon=$(get_icon_from_json "weather")
-    ;;
-  "weather_sunny")
-    icon=$(get_icon_from_json "weather-day_sunny")
-    ;;
-  "weather_cloudy")
-    icon=$(get_icon_from_json "weather-day_cloudy")
-    ;;
-  "weather_rainy")
-    icon=$(get_icon_from_json "weather-day_rain")
-    ;;
-  "weather_lightning")
-    icon=$(get_icon_from_json "weather-day_lightning")
-    ;;
-  "weather_snowy")
-    icon=$(get_icon_from_json "weather-day_snow")
-    ;;
   "network")
     icon=$(get_icon_from_json "fa-network")
     ;;
@@ -103,4 +85,34 @@ get_system_icon() {
   esac
 
   echo "$icon"
+}
+
+get_weather_icon_day() {
+  case "$1" in
+  113) echo "" ;; 116) echo "" ;; 119) echo "" ;; 122) echo "" ;;
+  143 | 248 | 260) echo "" ;;
+  176 | 185 | 263 | 266 | 281 | 284 | 293 | 296 | 299 | 302 | 305 | 308 | 311 | 314) echo "" ;;
+  179 | 227 | 230 | 323 | 326 | 329 | 332 | 335 | 338 | 368 | 371) echo "" ;;
+  182 | 317 | 320 | 362 | 365) echo "" ;;
+  200 | 386 | 389) echo "" ;;
+  350 | 374 | 377) echo "" ;;
+  392 | 395) echo "" ;;
+  353 | 356 | 359) echo "" ;;
+  *) echo "" ;;
+  esac
+}
+
+get_weather_icon_night() {
+  case "$1" in
+  113) echo "" ;; 116 | 122) echo "" ;; 119) echo "" ;;
+  143 | 248 | 260) echo "" ;;
+  176 | 185 | 263 | 266 | 281 | 284 | 293 | 296 | 299 | 302 | 305 | 308 | 311 | 314) echo "" ;;
+  179 | 227 | 230 | 323 | 326 | 329 | 332 | 335 | 338 | 368 | 371) echo "" ;;
+  182 | 317 | 320 | 362 | 365) echo "" ;;
+  200 | 386 | 389) echo "" ;;
+  350 | 374 | 377) echo "" ;;
+  392 | 395) echo "" ;;
+  353 | 356 | 359) echo "" ;;
+  *) echo "" ;;
+  esac
 }

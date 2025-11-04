@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/tokens/colors.sh"
+
 total_mem_bytes=$(sysctl -n hw.memsize)
 page_size=$(sysctl -n vm.pagesize)
 
@@ -26,4 +28,10 @@ else
   used_mem_percentage=0
 fi
 
-sketchybar --set ram.percent label="${used_mem_percentage}%"
+if [ "$SBAR_RAM_SHOW_GRAPH" = true ]; then
+  LOAD_NORMALIZED=$(echo "scale=2; $used_mem_percentage / 100" | bc)
+  sketchybar --push ram.graph "$LOAD_NORMALIZED" \
+             --set ram.graph graph.color="$COLOR_BLACK_50" label="${used_mem_percentage}%"
+elif [ "$SBAR_RAM_SHOW_PERCENT" = true ]; then
+  sketchybar --set ram.percent label="${used_mem_percentage}%"
+fi

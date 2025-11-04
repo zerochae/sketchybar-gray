@@ -99,6 +99,10 @@ export SBAR_AUTO_INSERT_SPACER=true
 export SBAR_CLOCK_FORMAT="MM/DD HH:mm"
 export SBAR_NETSTAT_SHOW_GRAPH=true
 export SBAR_NETSTAT_SHOW_SPEED=false
+export SBAR_CPU_SHOW_GRAPH=true
+export SBAR_CPU_SHOW_PERCENT=true
+export SBAR_RAM_SHOW_GRAPH=true
+export SBAR_RAM_SHOW_PERCENT=true
 export SBAR_WEATHER_LOCATION="Seoul"
 
 # ---------- default & bar ----------
