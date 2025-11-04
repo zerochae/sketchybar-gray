@@ -1,5 +1,5 @@
 
-<img width="2304" height="1296" alt="스크린샷 2025-11-04 08 35 13" src="https://github.com/user-attachments/assets/3223a98d-5b1f-4399-9466-57219f5e0ac4" />
+<img width="2304" height="1296" alt="스크린샷 2025-11-04 17 23 49" src="https://github.com/user-attachments/assets/e5261c54-6243-4e9c-9610-eaf105cfd28e" />
 
 
 # Sketchybar Configuration
