@@ -43,7 +43,7 @@ else
   echo "  1) Stash and update"
   echo "  2) Discard and update"
   echo "  3) Cancel"
-  read -p "Choose (1/2/3): " choice
+  read -rp "Choose (1/2/3): " choice
 
   case $choice in
     1)
