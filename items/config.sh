@@ -7,15 +7,17 @@ CONFIG_ICON=$(get_system_icon "config")
 
 CONFIG_VISIBLE="${SBAR_CONFIG_VISIBLE:-true}"
 if [ "$CONFIG_VISIBLE" = "false" ]; then
-  CONFIG_DRAWING="off"
+  CONFIG_ICON_COLOR="$COLOR_TRANSPARENT"
+  CONFIG_BG_DRAWING="off"
 else
-  CONFIG_DRAWING="on"
+  CONFIG_ICON_COLOR="$COLOR_BLACK"
+  CONFIG_BG_DRAWING="on"
 fi
 
 sketchybar --add item config right \
   --set config \
   icon="$CONFIG_ICON" \
-  icon.color="$COLOR_BLACK" \
+  icon.color="$CONFIG_ICON_COLOR" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \
   label.drawing=off \
@@ -23,9 +25,7 @@ sketchybar --add item config right \
   background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   background.height="$SBAR_ITEM_BG_HEIGHT" \
   background.border_width=0 \
-  background.drawing="$CONFIG_DRAWING" \
-  icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
-  icon.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
+  background.drawing="$CONFIG_BG_DRAWING" \
   popup.align=right \
   popup.height=30 \
   popup.padding_left="$SBAR_POPUP_PADDING_LEFT" \
