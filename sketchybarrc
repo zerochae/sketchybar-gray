@@ -90,7 +90,7 @@ export SBAR_WIDGETS_RIGHT=(
   "disk"
   "ram"
   "cpu"
-  "netstat"
+  # "netstat"
 )
 
 export SBAR_AUTO_INSERT_SPACER=true
