@@ -43,15 +43,15 @@ if [ "$THEME_TYPE" = "light" ]; then
     LABEL_COLOR="$COLOR_BLACK"
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
-    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE + 0.5" | bc)
-    BG_HEIGHT=$(echo "$BG_HEIGHT + 0.5" | bc)
+    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
+    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE - 1.5" | bc)
-    BG_HEIGHT=$(echo "$BG_HEIGHT - 1.5" | bc)
+    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
+    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
   fi
 else
   if [ "$SELECTED" = "true" ]; then
@@ -59,15 +59,15 @@ else
     LABEL_COLOR="$COLOR_BLACK"
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
-    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE + 0.5" | bc)
-    BG_HEIGHT=$(echo "$BG_HEIGHT + 0.5" | bc)
+    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
+    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$(echo "$SBAR_APP_ICON_FONT_SIZE - 1.5" | bc)
-    BG_HEIGHT=$(echo "$BG_HEIGHT - 1.5" | bc)
+    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
+    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
   fi
 fi
 

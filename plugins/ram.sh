@@ -26,7 +26,7 @@ else
 fi
 
 if [ "$SBAR_RAM_SHOW_GRAPH" = true ]; then
-  LOAD_NORMALIZED=$(echo "scale=2; $used_mem_percentage / 100" | bc)
+  LOAD_NORMALIZED=$(awk "BEGIN {printf \"%.2f\", $used_mem_percentage / 100}")
   sketchybar --push ram.graph "$LOAD_NORMALIZED" \
              --set ram.graph graph.color="$COLOR_MAGENTA_75" graph.fill_color="$COLOR_BLACK_25" label="${used_mem_percentage}%"
 elif [ "$SBAR_RAM_SHOW_PERCENT" = true ]; then

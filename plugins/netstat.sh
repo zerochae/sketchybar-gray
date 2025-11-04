@@ -105,11 +105,11 @@ up_speed=$(format_speed "$speed_out")
 if [ "$SBAR_NETSTAT_SHOW_GRAPH" = true ]; then
   max_speed=512000
 
-  down_normalized=$(echo "scale=4; $speed_in / $max_speed" | bc)
-  down_clamped=$(echo "if ($down_normalized > 1) 1 else $down_normalized" | bc)
+  down_normalized=$(awk "BEGIN {printf \"%.4f\", $speed_in / $max_speed}")
+  down_clamped=$(awk "BEGIN {print ($down_normalized > 1) ? 1 : $down_normalized}")
 
-  up_normalized=$(echo "scale=4; $speed_out / $max_speed" | bc)
-  up_clamped=$(echo "if ($up_normalized > 1) 1 else $up_normalized" | bc)
+  up_normalized=$(awk "BEGIN {printf \"%.4f\", $speed_out / $max_speed}")
+  up_clamped=$(awk "BEGIN {print ($up_normalized > 1) ? 1 : $up_normalized}")
 
   sketchybar --push netstat.down.graph "$down_clamped" \
              --set netstat.down.graph graph.color="$COLOR_BLACK_50" label="$down_speed"
