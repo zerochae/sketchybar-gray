@@ -10,16 +10,16 @@ if [ -z "$PERCENTAGE" ]; then
 fi
 
 if [ "$CHARGING" != "" ]; then
-  ICON=$(get_system_icon "fa-battery_4")
+  ICON=$(get_widget_icon "fa-battery_4")
 else
   if [ "$PERCENTAGE" -ge 75 ]; then
-    ICON=$(get_system_icon "fa-battery_4")
+    ICON=$(get_widget_icon "fa-battery_4")
   elif [ "$PERCENTAGE" -ge 50 ]; then
-    ICON=$(get_system_icon "fa-battery_3")
+    ICON=$(get_widget_icon "fa-battery_3")
   elif [ "$PERCENTAGE" -ge 25 ]; then
-    ICON=$(get_system_icon "fa-battery_2")
+    ICON=$(get_widget_icon "fa-battery_2")
   else
-    ICON=$(get_system_icon "fa-battery_1")
+    ICON=$(get_widget_icon "fa-battery_1")
   fi
 fi
 

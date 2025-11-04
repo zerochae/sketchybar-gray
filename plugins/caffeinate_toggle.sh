@@ -10,21 +10,21 @@ if [ -f "$PID_FILE" ]; then
   if kill -0 "$PID" 2>/dev/null; then
     kill "$PID"
     rm "$PID_FILE"
-    ICON=$(get_system_icon "md-coffee")
+    ICON=$(get_widget_icon "md-coffee")
     ICON_COLOR="$COLOR_BLACK"
     BG_COLOR="$COLOR_GREEN_75"
   else
     rm "$PID_FILE"
     caffeinate -d &
     echo $! >"$PID_FILE"
-    ICON=$(get_system_icon "md-tea")
+    ICON=$(get_widget_icon "md-tea")
     ICON_COLOR="$COLOR_WHITE"
     BG_COLOR="$COLOR_RED_75"
   fi
 else
   caffeinate -d &
   echo $! >"$PID_FILE"
-  ICON=$(get_system_icon "md-tea")
+  ICON=$(get_widget_icon "md-tea")
   ICON_COLOR="$COLOR_WHITE"
   BG_COLOR="$COLOR_RED_75"
 fi

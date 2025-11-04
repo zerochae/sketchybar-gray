@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-CAFFEINATE_ICON=$(get_system_icon "md-coffee")
+CAFFEINATE_ICON=$(get_widget_icon "md-coffee")
 
 sketchybar --add item caffeinate.icon right \
   --set caffeinate.icon \

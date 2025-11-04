@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-### START-OF-SYSTEM-ICON-MAP
-function __system_icon_map() {
+### START-OF-WIDGET-ICON-MAP
+function __widget_icon_map() {
     case "$1" in
     "cod-account")
         icon_result=""
@@ -32345,4 +32345,4 @@ function __system_icon_map() {
         ;;
     esac
 }
-### END-OF-SYSTEM-ICON-MAP
+### END-OF-WIDGET-ICON-MAP

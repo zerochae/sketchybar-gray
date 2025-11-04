@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/plugins/app_icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
-DISK_ICON=$(get_system_icon "fa-hdd_o")
+DISK_ICON=$(get_widget_icon "fa-hdd_o")
 
 sketchybar --add item disk.percent right \
   --set disk.percent \

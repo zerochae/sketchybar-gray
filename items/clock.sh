@@ -2,7 +2,7 @@
 
 source "$CONFIG_DIR/plugins/app_icon.sh"
 
-CLOCK_ICON=$(get_system_icon "fa-clock")
+CLOCK_ICON=$(get_widget_icon "fa-clock")
 
 sketchybar --add item clock.label right \
 	--set clock.label \

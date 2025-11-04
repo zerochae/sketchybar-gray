@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/icons/apps.sh"
-source "$CONFIG_DIR/icons/system.sh"
+source "$CONFIG_DIR/icons/widget.sh"
 
-# Variable set by __icon_map in apps.sh and __system_icon_map in system.sh
+# Variable set by __icon_map in apps.sh and __widget_icon_map in widget.sh
 icon_result=""
 
 get_app_icon() {
@@ -12,9 +12,9 @@ get_app_icon() {
   echo "$icon_result"
 }
 
-get_system_icon() {
+get_widget_icon() {
   local icon_name="$1"
-  __system_icon_map "$icon_name"
+  __widget_icon_map "$icon_name"
   echo "$icon_result"
 }
 
