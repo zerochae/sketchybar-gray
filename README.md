@@ -90,6 +90,33 @@ brew services restart sketchybar
 
 Done! You should now see the customized status bar at the top of your screen.
 
+## Update
+
+### Quick Update (Recommended)
+
+Update to the latest version with a single command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/update.sh | bash
+```
+
+### Manual Update
+
+Navigate to your sketchybar config directory and run the update script:
+
+```bash
+cd ~/.config/sketchybar
+./update.sh
+```
+
+Or use git directly:
+
+```bash
+cd ~/.config/sketchybar
+git pull origin master
+brew services restart sketchybar
+```
+
 ## Configuration
 
 ### Environment Variables
