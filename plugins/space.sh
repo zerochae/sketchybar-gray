@@ -39,6 +39,7 @@ if [ "$THEME_TYPE" = "light" ]; then
     BORDER_COLOR="$COLOR_GREEN"
     ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
     BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
+    SHADOW_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
@@ -46,6 +47,7 @@ if [ "$THEME_TYPE" = "light" ]; then
     BORDER_COLOR="$COLOR_GREEN_50"
     ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
     BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
+    SHADOW_DRAWING="off"
   fi
 else
   if [ "$SELECTED" = "true" ]; then
@@ -55,6 +57,7 @@ else
     BORDER_COLOR="$COLOR_GREEN"
     ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
     BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
+    SHADOW_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
@@ -62,18 +65,39 @@ else
     BORDER_COLOR="$COLOR_GREEN_50"
     ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
     BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
+    SHADOW_DRAWING="off"
   fi
 fi
 
-sketchybar --set "$NAME" \
-  icon="$ICONS" \
-  icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \
-  icon.padding_left="$ICON_PADDING" \
-  icon.padding_right="$ICON_PADDING" \
-  icon.color="$ICON_COLOR" \
-  label.drawing="$LABEL_DRAWING" \
-  label.color="$LABEL_COLOR" \
-  background.color="$BG_COLOR" \
-  background.border_color="$BORDER_COLOR" \
-  background.drawing="on" \
-  background.height="$BG_HEIGHT"
+if [ "$SELECTED" = "true" ]; then
+  sketchybar --set "$NAME" \
+    icon="$ICONS" \
+    icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \
+    icon.padding_left="$ICON_PADDING" \
+    icon.padding_right="$ICON_PADDING" \
+    icon.color="$ICON_COLOR" \
+    label.drawing="$LABEL_DRAWING" \
+    label.color="$LABEL_COLOR" \
+    background.color="$BG_COLOR" \
+    background.border_color="$BORDER_COLOR" \
+    background.drawing="on" \
+    background.height="$BG_HEIGHT" \
+    background.shadow.drawing=on \
+    background.shadow.color="$COLOR_GREEN_50" \
+    background.shadow.angle=55 \
+    background.shadow.distance=4
+else
+  sketchybar --set "$NAME" \
+    icon="$ICONS" \
+    icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \
+    icon.padding_left="$ICON_PADDING" \
+    icon.padding_right="$ICON_PADDING" \
+    icon.color="$ICON_COLOR" \
+    label.drawing="$LABEL_DRAWING" \
+    label.color="$LABEL_COLOR" \
+    background.color="$BG_COLOR" \
+    background.border_color="$BORDER_COLOR" \
+    background.drawing="on" \
+    background.height="$BG_HEIGHT" \
+    background.shadow.drawing=off
+fi
