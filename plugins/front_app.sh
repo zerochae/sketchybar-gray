@@ -4,7 +4,7 @@
 : "${INFO:=}"
 
 source "$CONFIG_DIR/tokens/colors.sh"
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 if [ -n "$INFO" ]; then
   APP_NAME="$INFO"

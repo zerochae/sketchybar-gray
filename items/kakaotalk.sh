@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
 KAKAO_ICON=$(get_app_icon "KakaoTalk")

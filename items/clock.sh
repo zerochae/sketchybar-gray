@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 CLOCK_ICON=$(get_widget_icon "clock")
 

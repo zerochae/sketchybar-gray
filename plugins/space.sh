@@ -6,7 +6,7 @@
 
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 source "$CONFIG_DIR/env.sh"
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 BG_HEIGHT=24
 

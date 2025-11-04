@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 WEATHER_JSON=$(curl -s "wttr.in/$SBAR_WEATHER_LOCATION?format=j1" 2>/dev/null)
 
@@ -42,11 +42,7 @@ else
   fi
 fi
 
-if [ "$IS_DAY" -eq 1 ]; then
-  ICON=$(get_weather_icon_day "$WEATHER_CODE")
-else
-  ICON=$(get_weather_icon_night "$WEATHER_CODE")
-fi
+ICON=$(get_weather_icon "$WEATHER_CODE" "$IS_DAY")
 
 sketchybar --set weather.icon icon="$ICON"
 sketchybar --set weather.label label="${TEMP}°C"

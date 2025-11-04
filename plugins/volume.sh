@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 VOLUME=$(osascript -e "output volume of (get volume settings)")
 MUTED=$(osascript -e "output muted of (get volume settings)")

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/plugins/app_icon.sh"
+source "$CONFIG_DIR/plugins/icon.sh"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo '[0-9]+%' | tr -d '%')"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
