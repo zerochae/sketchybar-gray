@@ -325,14 +325,9 @@ export SBAR_THEME="onelight"  # or "onedark"
 │   └── themes/                   # Theme files
 │       ├── onedark.sh
 │       └── onelight.sh
-├── scripts/                      # Installation scripts
-│   ├── install.sh                # Installation script
-│   └── update.sh                 # Update script
-└── helpers/                      # Helper utilities
-    └── event_providers/          # Event provider scripts
-        ├── cpu_event_provider.sh
-        ├── disk_event_provider.sh
-        └── ram_event_provider.sh
+└── scripts/                      # Installation scripts
+    ├── install.sh                # Installation script
+    └── update.sh                 # Update script
 ```
 
 ## Troubleshooting
