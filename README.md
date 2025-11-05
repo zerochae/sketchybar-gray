@@ -6,6 +6,18 @@
 
 A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
 
+## Features
+
+- **Two Style Modes**: Block style (individual backgrounds) and Compact style (container backgrounds)
+- **Dual Themes**: OneDark and OneLight themes with proper color contrast
+- **Interactive Config Menu**: Click the config icon to adjust settings on-the-fly
+- **Workspace Integration**: yabai or Mission Control support for workspace indicators
+- **Weather Widget**: Real-time weather information with location customization
+- **System Monitoring**: CPU, RAM, Disk usage with graphs and percentages
+- **App Icons**: Custom app icon font with extensive app support
+- **KakaoTalk Integration**: Badge notifications for new messages
+- **Caffeinate Toggle**: Quick caffeine mode toggling with visual feedback
+
 ## Dependencies
 
 ### Required
@@ -26,7 +38,7 @@ A customized macOS menu bar configuration featuring app icons, system status, we
 Install with a single command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/scripts/install.sh | bash
 ```
 
 ### Manual Installation
@@ -97,13 +109,13 @@ Done! You should now see the customized status bar at the top of your screen.
 Update to the latest version with a single command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/update.sh | bash
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/scripts/update.sh | bash
 ```
 
 Or specify a custom directory:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/update.sh | bash -s /path/to/sketchybar
+curl -fsSL https://raw.githubusercontent.com/zerochae/sketchybar-gray/master/scripts/update.sh | bash -s /path/to/sketchybar
 ```
 
 ### Manual Update
@@ -112,13 +124,13 @@ Navigate to your sketchybar config directory and run the update script:
 
 ```bash
 cd ~/.config/sketchybar
-./update.sh
+./scripts/update.sh
 ```
 
 Or specify a custom directory:
 
 ```bash
-./update.sh /path/to/sketchybar
+./scripts/update.sh /path/to/sketchybar
 ```
 
 Or use git directly:
@@ -131,34 +143,64 @@ brew services restart sketchybar
 
 ## Configuration
 
-### Environment Variables
+### User Configuration
 
-Customize settings in `sketchybarrc`:
+Create a user config file to override defaults:
 
 ```bash
+# Create user config
+touch ~/.config/sketchybar/user.sketchybarrc
+```
+
+Edit `user.sketchybarrc` to customize settings:
+
+```bash
+# Theme
+export SBAR_THEME="onedark"  # or "onelight"
+
+# Bar Style
+export SBAR_BAR_STYLE="block"  # or "compact"
+
 # Font settings
-export SBAR_FONT_FAMILY="SpaceMono Nerd Font Mono"
-export SBAR_APP_ICON_FONT="sketchybar-app-font"
-export SBAR_APP_ICON_FONT_SIZE="20.0"  # Adjust icon size
+export SBAR_LABEL_FONT_FAMILY="SpaceMono Nerd Font Mono"
+export SBAR_ICON_FONT_SIZE="18.0"
+export SBAR_LABEL_FONT_SIZE="12.0"
+export SBAR_APP_ICON_FONT_SIZE="13.5"
 
 # Bar settings
 export SBAR_BAR_HEIGHT=56
 export SBAR_BAR_POSITION="top"  # top or bottom
+export SBAR_BAR_BACKGROUND="transparent"  # or "bg1"
 
 # Update frequency
-export SBAR_ITEM_UPDATE_FREQ_FAST=2    # Fast update interval (seconds)
+export SBAR_ITEM_UPDATE_FREQ_FAST=2
 export SBAR_ITEM_UPDATE_FREQ_DEFAULT=10
 export SBAR_ITEM_UPDATE_FREQ_SLOW=30
+
+# Weather location
+export SBAR_WEATHER_LOCATION="Seoul"
+
+# Widget visibility
+export SBAR_CONFIG_VISIBLE="false"
 ```
 
 ### Enable/Disable Widgets
 
-Edit the `SBAR_WIDGETS_*` arrays in `sketchybarrc`:
+Edit `core/init_widgets.sh` to customize widget arrays:
 
 ```bash
+export SBAR_WIDGETS_LEFT=(
+  "space"
+)
+
+export SBAR_WIDGETS_CENTER=(
+  "front_app"
+)
+
 export SBAR_WIDGETS_RIGHT=(
   "clock"
-  "weather"      # Remove this line to disable weather
+  "calendar"
+  "weather"
   "caffeinate"
   "volume"
   "battery"
@@ -166,49 +208,131 @@ export SBAR_WIDGETS_RIGHT=(
   "ram"
   "cpu"
   "netstat"
+  "kakaotalk"
+  "config"
 )
 ```
 
-### Change Weather Location
+### Style Modes
 
-In `sketchybarrc`:
+Two style modes are available:
 
+**Block Style** (default):
+- Each widget has its own colored background
+- Clear visual separation between widgets
+- Best for high-contrast display
+
+**Compact Style**:
+- Widgets are grouped in containers
+- Left, Center, Right sections with shared backgrounds
+- More compact appearance
+
+Switch styles via the config menu or by setting:
 ```bash
-export SBAR_WEATHER_LOCATION="Seoul"  # Change to your city
+export SBAR_BAR_STYLE="compact"  # or "block"
+```
+
+### Themes
+
+Two themes are available:
+
+**OneDark** (default):
+- Dark background with light text
+- Suitable for low-light environments
+
+**OneLight**:
+- Light background with dark text
+- Suitable for bright environments
+
+Switch themes via the config menu or by setting:
+```bash
+export SBAR_THEME="onelight"  # or "onedark"
 ```
 
 ## Directory Structure
 
 ```
 ~/.config/sketchybar/
-├── sketchybarrc           # Main configuration file (environment variables)
-├── loader.sh              # Widget loader
-├── README.md              # Documentation
-├── icons/
-│   ├── apps.sh            # App icon mappings (sketchybar-app-font)
-│   └── system.json        # System icons (Nerd Fonts)
-├── items/                 # Widget item definitions
+├── sketchybarrc                  # Main entry point
+├── user.sketchybarrc             # User configuration (optional)
+├── README.md                     # Documentation
+├── core/                         # Core system files
+│   ├── env.sh                    # Environment variables
+│   ├── loader.sh                 # Widget loader
+│   ├── init_widgets.sh           # Widget array initialization
+│   ├── load_widgets.sh           # Widget loading execution
+│   ├── bar_defaults.sh           # Bar default settings
+│   ├── styles.sh                 # Style loader
+│   └── events.sh                 # System events
+├── styles/                       # Style definitions
+│   ├── block.sh                  # Block style (individual backgrounds)
+│   └── compact.sh                # Compact style (container backgrounds)
+├── items/                        # Widget item definitions
 │   ├── space.sh
 │   ├── front_app.sh
 │   ├── clock.sh
+│   ├── calendar.sh
 │   ├── weather.sh
-│   ├── cpu.sh
-│   ├── ram.sh
-│   ├── disk.sh
-│   ├── battery.sh
-│   ├── volume.sh
 │   ├── caffeinate.sh
-│   └── netstat.sh
-├── plugins/               # Widget scripts
-│   ├── helpers.sh         # Utility functions
-│   ├── app_icon.sh        # Icon helper
+│   ├── volume.sh
+│   ├── battery.sh
+│   ├── disk.sh
+│   ├── ram.sh
+│   ├── cpu.sh
+│   ├── netstat.sh
+│   ├── kakaotalk.sh
+│   └── config.sh
+├── plugins/                      # Widget update scripts
+│   ├── helpers.sh                # Utility functions
+│   ├── icon.sh                   # Icon helper
 │   ├── front_app.sh
 │   ├── space.sh
-│   ├── yabai.sh          # yabai integration
-│   ├── mission_control.sh # Mission control fallback
-│   └── ...
-└── tokens/
-    └── colors.sh          # Color definitions
+│   ├── clock.sh
+│   ├── calendar.sh
+│   ├── weather.sh
+│   ├── caffeinate.sh
+│   ├── volume.sh
+│   ├── battery.sh
+│   ├── disk.sh
+│   ├── ram.sh
+│   ├── cpu.sh
+│   ├── netstat.sh
+│   ├── kakaotalk.sh
+│   ├── yabai.sh                  # yabai integration
+│   ├── mission_control.sh        # Mission control fallback
+│   └── config/                   # Config menu scripts
+│       ├── bar_style.sh
+│       ├── bar_background.sh
+│       ├── icon_size.sh
+│       ├── label_size.sh
+│       ├── icon_font_family.sh
+│       ├── label_font_family.sh
+│       ├── app_icon_size.sh
+│       ├── weather_location.sh
+│       ├── clock_format.sh
+│       ├── calendar_format.sh
+│       └── theme.sh
+├── events/                       # Event handlers
+│   ├── caffeinate_toggle.sh      # Caffeinate toggle handler
+│   ├── volume_click.sh           # Volume click handler
+│   └── system_woke.sh            # System wake handler
+├── icons/                        # Icon definitions
+│   ├── apps.sh                   # App icon mappings
+│   └── system.json               # System icons (Nerd Fonts)
+├── tokens/                       # Design tokens
+│   ├── colors.sh                 # Color definitions
+│   ├── helpers.sh                # Color helper functions
+│   └── themes/                   # Theme files
+│       ├── onedark.sh
+│       └── onelight.sh
+├── scripts/                      # Installation scripts
+│   ├── install.sh                # Installation script
+│   └── update.sh                 # Update script
+└── helpers/                      # Helper utilities
+    └── event_providers/          # Event provider scripts
+        ├── cpu_event_provider.sh
+        ├── disk_event_provider.sh
+        └── ram_event_provider.sh
 ```
 
 ## Troubleshooting
@@ -245,8 +369,13 @@ curl -s "wttr.in/Seoul?format=j1"
 
 Grant execute permissions to scripts:
 ```bash
-chmod +x ~/.config/sketchybar/plugins/*.sh
+chmod +x ~/.config/sketchybar/core/*.sh
+chmod +x ~/.config/sketchybar/styles/*.sh
 chmod +x ~/.config/sketchybar/items/*.sh
+chmod +x ~/.config/sketchybar/plugins/*.sh
+chmod +x ~/.config/sketchybar/plugins/config/*.sh
+chmod +x ~/.config/sketchybar/events/*.sh
+chmod +x ~/.config/sketchybar/scripts/*.sh
 ```
 
 ## Credits
