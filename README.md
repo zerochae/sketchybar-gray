@@ -2,7 +2,7 @@
 <img width="2304" height="1296" alt="스크린샷 2025-11-04 17 23 49" src="https://github.com/user-attachments/assets/e5261c54-6243-4e9c-9610-eaf105cfd28e" />
 
 
-# Sketchybar Configuration
+# Sketchybar Gray
 
 A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
 
