@@ -116,6 +116,10 @@ sketchybar --add bracket "kakaotalk" "/kakaotalk\.icon/" \
 
 sketchybar --set "/kakaotalk\.icon/" icon.color="$COLOR_BLACK"
 
+source "$CONFIG_DIR/tokens/helpers.sh"
+BADGE_COLOR=$(get_badge_label_color)
+sketchybar --set kakaotalk.badge label.color="$BADGE_COLOR"
+
 sketchybar --add bracket "front_app" "/front_app\..*/" \
   --set "front_app" \
   background.color="$SBAR_COLOR_FRONT_APP" \

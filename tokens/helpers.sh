@@ -20,5 +20,9 @@ generate_alpha_variants() {
 }
 
 get_badge_label_color() {
-  echo "0xFFFFFFFF"
+  if [ "$THEME_TYPE" = "light" ]; then
+    echo "$COLOR_WHITE"
+  else
+    echo "$COLOR_BLACK"
+  fi
 }

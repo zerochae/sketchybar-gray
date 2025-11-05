@@ -15,7 +15,8 @@ sketchybar --add item kakaotalk.badge right \
   background.color="$COLOR_RED" \
   background.corner_radius=7 \
   background.height=14 \
-  background.drawing=off
+  background.drawing=off \
+  y_offset=-10
 
 sketchybar --add item kakaotalk.icon right \
   --set kakaotalk.icon \

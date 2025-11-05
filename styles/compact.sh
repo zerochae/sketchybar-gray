@@ -19,6 +19,10 @@ sketchybar --set "/netstat\..*/" icon.color="$SBAR_COLOR_NETSTAT" label.color="$
 sketchybar --set "/kakaotalk\.icon/" icon.color="$SBAR_COLOR_KAKAOTALK"
 sketchybar --set "/front_app\..*/" icon.color="$SBAR_COLOR_FRONT_APP" label.color="$SBAR_COLOR_FRONT_APP"
 
+source "$CONFIG_DIR/tokens/helpers.sh"
+BADGE_COLOR=$(get_badge_label_color)
+sketchybar --set kakaotalk.badge label.color="$BADGE_COLOR"
+
 LEFT_ITEMS=()
 CENTER_ITEMS=()
 RIGHT_ITEMS=()
