@@ -130,6 +130,15 @@ sketchybar --add item config.clock_format popup.config \
   label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/clock_format.sh"
 
+sketchybar --add item config.calendar_format popup.config \
+  --set config.calendar_format \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Calendar Format" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  click_script="$SBAR_PLUGIN_DIR/config/calendar_format.sh"
+
 sketchybar --add item config.weather_location popup.config \
   --set config.weather_location \
   icon= \

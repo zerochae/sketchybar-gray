@@ -8,7 +8,7 @@ CAFFEINATE_ICON=$(get_widget_icon "coffee_on")
 sketchybar --add item caffeinate.icon right \
   --set caffeinate.icon \
   icon="$CAFFEINATE_ICON" \
-  icon.font="$SBAR_ICON_FONT_FACE_BOLD:$SBAR_ICON_FONT_SIZE" \
+  icon.font="$SBAR_ICON_FONT_FACE_BOLD:$(calc "$SBAR_ICON_FONT_SIZE + 3")" \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \

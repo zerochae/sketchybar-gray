@@ -42,6 +42,9 @@ function __widget_icon_map() {
   "clock")
     icon_result=""
     ;;
+  "calendar")
+    icon_result=""
+    ;;
   "network_download")
     icon_result=""
     ;;
@@ -76,7 +79,7 @@ function __widget_icon_map() {
     icon_result="󰶞"
     ;;
   "memory")
-    icon_result="󰍛"
+    icon_result=""
     ;;
   "config")
     icon_result=""

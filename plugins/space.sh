@@ -7,6 +7,7 @@
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 source "$CONFIG_DIR/env.sh"
 source "$CONFIG_DIR/plugins/icon.sh"
+source "$CONFIG_DIR/plugins/helpers.sh"
 
 BG_HEIGHT=24
 
@@ -41,16 +42,16 @@ if [ "$THEME_TYPE" = "light" ]; then
     LABEL_COLOR="$COLOR_BLACK"
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
-    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
-    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
+    ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE + 0.5")
+    BG_HEIGHT=$(calc "$BG_HEIGHT + 0.5")
     SHADOW_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
-    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
+    ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE - 1.5")
+    BG_HEIGHT=$(calc "$BG_HEIGHT - 1.5")
     SHADOW_DRAWING="off"
   fi
 else
@@ -59,16 +60,16 @@ else
     LABEL_COLOR="$COLOR_BLACK"
     BG_COLOR="$COLOR_GREEN"
     BORDER_COLOR="$COLOR_GREEN"
-    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE + 0.5}")
-    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT + 0.5}")
+    ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE + 0.5")
+    BG_HEIGHT=$(calc "$BG_HEIGHT + 0.5")
     SHADOW_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
     BG_COLOR="$COLOR_BG2_75"
     BORDER_COLOR="$COLOR_GREEN_50"
-    ICON_SIZE=$(awk "BEGIN {print $SBAR_APP_ICON_FONT_SIZE - 1.5}")
-    BG_HEIGHT=$(awk "BEGIN {print $BG_HEIGHT - 1.5}")
+    ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE - 1.5")
+    BG_HEIGHT=$(calc "$BG_HEIGHT - 1.5")
     SHADOW_DRAWING="off"
   fi
 fi

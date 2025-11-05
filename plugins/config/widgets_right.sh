@@ -4,7 +4,7 @@ source "$CONFIG_DIR/plugins/config/helpers.sh"
 
 sketchybar --set config popup.drawing=off
 
-ALL_WIDGETS=("clock" "weather" "caffeinate" "volume" "battery" "disk" "ram" "cpu" "kakaotalk" "netstat")
+ALL_WIDGETS=("clock" "weather" "caffeinate" "volume" "battery" "disk" "ram" "cpu" "kakaotalk" "netstat" "calendar")
 
 CURRENT=$(get_config_value "SBAR_WIDGETS_RIGHT_ENABLED")
 if [ -z "$CURRENT" ]; then

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/plugins/icon.sh"
+source "$CONFIG_DIR/plugins/helpers.sh"
 source "$CONFIG_DIR/tokens/colors.sh"
 
 cleanup() {
@@ -105,11 +106,11 @@ up_speed=$(format_speed "$speed_out")
 if [ "$SBAR_NETSTAT_SHOW_GRAPH" = true ]; then
   max_speed=512000
 
-  down_normalized=$(awk "BEGIN {printf \"%.4f\", $speed_in / $max_speed}")
-  down_clamped=$(awk "BEGIN {print ($down_normalized > 1) ? 1 : $down_normalized}")
+  down_normalized=$(calc "sprintf(\"%.4f\", $speed_in / $max_speed)")
+  down_clamped=$(calc "($down_normalized > 1) ? 1 : $down_normalized")
 
-  up_normalized=$(awk "BEGIN {printf \"%.4f\", $speed_out / $max_speed}")
-  up_clamped=$(awk "BEGIN {print ($up_normalized > 1) ? 1 : $up_normalized}")
+  up_normalized=$(calc "sprintf(\"%.4f\", $speed_out / $max_speed)")
+  up_clamped=$(calc "($up_normalized > 1) ? 1 : $up_normalized")
 
   sketchybar --push netstat.down.graph "$down_clamped" \
              --set netstat.down.graph graph.color="$COLOR_BLACK_50" label="$down_speed"

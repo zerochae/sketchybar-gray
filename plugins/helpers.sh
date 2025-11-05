@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+calc() {
+  local expression="$1"
+  awk "BEGIN {print $expression}"
+}
+
 add_bracket_item() {
   local name=$1
   local bg_color=$2
