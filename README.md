@@ -6,19 +6,6 @@
 
 A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
 
-## Features
-
-- **Two Style Modes**: Block style (individual backgrounds) and Compact style (container backgrounds)
-- **Multiple Themes**: 10 themes available (5 dark, 5 light) with proper color contrast
-- **Interactive Config Menu**: Click the config icon to adjust settings on-the-fly
-- **Workspace Integration**: yabai or Mission Control support for workspace indicators
-- **Weather Widget**: Real-time weather information with location customization
-- **System Monitoring**: CPU, RAM, Disk usage with graphs and percentages
-- **App Icons**: Custom app icon font with extensive app support
-- **KakaoTalk Integration**: Badge notifications for new messages
-- **Caffeinate Toggle**: Quick caffeine mode toggling with visual feedback
-- **User Configuration**: Override defaults with user.sketchybarrc file
-
 ## Dependencies
 
 ### Required
@@ -254,105 +241,6 @@ Multiple themes are available:
 Switch themes via the config menu or by setting:
 ```bash
 export SBAR_THEME="nord"  # Choose any theme name
-```
-
-## Directory Structure
-
-```
-~/.config/sketchybar/
-├── sketchybarrc                  # Main entry point
-├── user.sketchybarrc.example     # Example user configuration
-├── README.md                     # Documentation
-├── .gitignore
-├── .shellcheckrc                 # Shellcheck configuration
-├── core/                         # Core system files
-│   ├── env.sh                    # Environment variables
-│   ├── loader.sh                 # Widget loader
-│   ├── init_widgets.sh           # Widget array initialization
-│   ├── load_widgets.sh           # Widget loading execution
-│   ├── bar_defaults.sh           # Bar default settings
-│   ├── styles.sh                 # Style loader
-│   └── events.sh                 # System events
-├── styles/                       # Style definitions
-│   ├── block.sh                  # Block style (individual backgrounds)
-│   └── compact.sh                # Compact style (container backgrounds)
-├── items/                        # Widget item definitions
-│   ├── space.sh
-│   ├── spacer.sh
-│   ├── front_app.sh
-│   ├── clock.sh
-│   ├── calendar.sh
-│   ├── weather.sh
-│   ├── caffeinate.sh
-│   ├── volume.sh
-│   ├── battery.sh
-│   ├── disk.sh
-│   ├── ram.sh
-│   ├── cpu.sh
-│   ├── netstat.sh
-│   ├── kakaotalk.sh
-│   └── config.sh
-├── plugins/                      # Widget update scripts
-│   ├── helpers.sh                # Utility functions
-│   ├── icon.sh                   # Icon helper
-│   ├── space.sh
-│   ├── front_app.sh
-│   ├── clock.sh
-│   ├── calendar.sh
-│   ├── weather.sh
-│   ├── caffeinate.sh
-│   ├── volume.sh
-│   ├── battery.sh
-│   ├── disk.sh
-│   ├── ram.sh
-│   ├── cpu.sh
-│   ├── netstat.sh
-│   ├── kakaotalk.sh
-│   ├── yabai.sh                  # yabai integration
-│   ├── mission_control.sh        # Mission control fallback
-│   └── config/                   # Config menu scripts
-│       ├── helpers.sh
-│       ├── bar_style.sh
-│       ├── bar_background.sh
-│       ├── theme.sh
-│       ├── icon_size.sh
-│       ├── label_size.sh
-│       ├── icon_font_family.sh
-│       ├── label_font_family.sh
-│       ├── app_icon_size.sh
-│       ├── clock_format.sh
-│       ├── calendar_format.sh
-│       ├── weather_location.sh
-│       ├── netstat_graph.sh
-│       ├── netstat_speed.sh
-│       ├── config_visible.sh
-│       ├── widgets_right.sh
-│       └── reset.sh
-├── events/                       # Event handlers
-│   ├── caffeinate_toggle.sh      # Caffeinate toggle handler
-│   ├── volume_click.sh           # Volume click handler
-│   └── system_woke.sh            # System wake handler
-├── icons/                        # Icon definitions
-│   ├── apps.sh                   # App icon mappings
-│   ├── widget.sh                 # Widget icons
-│   └── weather.sh                # Weather icons
-├── tokens/                       # Design tokens
-│   ├── colors.sh                 # Color definitions
-│   ├── helpers.sh                # Color helper functions
-│   └── themes/                   # Theme files
-│       ├── onedark.sh
-│       ├── onelight.sh
-│       ├── nord.sh
-│       ├── tokyonight.sh
-│       ├── githubdark.sh
-│       ├── githublight.sh
-│       ├── gruvboxlight.sh
-│       ├── blossomlight.sh
-│       ├── ayudark.sh
-│       └── ayulight.sh
-└── scripts/                      # Installation scripts
-    ├── install.sh                # Installation script
-    └── update.sh                 # Update script
 ```
 
 ## Troubleshooting
