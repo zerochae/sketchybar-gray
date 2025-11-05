@@ -9,7 +9,7 @@ A customized macOS menu bar configuration featuring app icons, system status, we
 ## Features
 
 - **Two Style Modes**: Block style (individual backgrounds) and Compact style (container backgrounds)
-- **Dual Themes**: OneDark and OneLight themes with proper color contrast
+- **Multiple Themes**: 10 themes available (5 dark, 5 light) with proper color contrast
 - **Interactive Config Menu**: Click the config icon to adjust settings on-the-fly
 - **Workspace Integration**: yabai or Mission Control support for workspace indicators
 - **Weather Widget**: Real-time weather information with location customization
@@ -17,6 +17,7 @@ A customized macOS menu bar configuration featuring app icons, system status, we
 - **App Icons**: Custom app icon font with extensive app support
 - **KakaoTalk Integration**: Badge notifications for new messages
 - **Caffeinate Toggle**: Quick caffeine mode toggling with visual feedback
+- **User Configuration**: Override defaults with user.sketchybarrc file
 
 ## Dependencies
 
@@ -234,19 +235,25 @@ export SBAR_BAR_STYLE="compact"  # or "block"
 
 ### Themes
 
-Two themes are available:
+Multiple themes are available:
 
-**OneDark** (default):
-- Dark background with light text
-- Suitable for low-light environments
+**Dark Themes**:
+- `onedark` (default) - One Dark color scheme
+- `nord` - Nord color scheme
+- `tokyonight` - Tokyo Night color scheme
+- `githubdark` - GitHub Dark color scheme
+- `ayudark` - Ayu Dark color scheme
 
-**OneLight**:
-- Light background with dark text
-- Suitable for bright environments
+**Light Themes**:
+- `onelight` - One Light color scheme
+- `githublight` - GitHub Light color scheme
+- `gruvboxlight` - Gruvbox Light color scheme
+- `blossomlight` - Blossom Light color scheme
+- `ayulight` - Ayu Light color scheme
 
 Switch themes via the config menu or by setting:
 ```bash
-export SBAR_THEME="onelight"  # or "onedark"
+export SBAR_THEME="nord"  # Choose any theme name
 ```
 
 ## Directory Structure
@@ -254,8 +261,10 @@ export SBAR_THEME="onelight"  # or "onedark"
 ```
 ~/.config/sketchybar/
 ├── sketchybarrc                  # Main entry point
-├── user.sketchybarrc             # User configuration (optional)
+├── user.sketchybarrc.example     # Example user configuration
 ├── README.md                     # Documentation
+├── .gitignore
+├── .shellcheckrc                 # Shellcheck configuration
 ├── core/                         # Core system files
 │   ├── env.sh                    # Environment variables
 │   ├── loader.sh                 # Widget loader
@@ -269,6 +278,7 @@ export SBAR_THEME="onelight"  # or "onedark"
 │   └── compact.sh                # Compact style (container backgrounds)
 ├── items/                        # Widget item definitions
 │   ├── space.sh
+│   ├── spacer.sh
 │   ├── front_app.sh
 │   ├── clock.sh
 │   ├── calendar.sh
@@ -285,8 +295,8 @@ export SBAR_THEME="onelight"  # or "onedark"
 ├── plugins/                      # Widget update scripts
 │   ├── helpers.sh                # Utility functions
 │   ├── icon.sh                   # Icon helper
-│   ├── front_app.sh
 │   ├── space.sh
+│   ├── front_app.sh
 │   ├── clock.sh
 │   ├── calendar.sh
 │   ├── weather.sh
@@ -301,30 +311,45 @@ export SBAR_THEME="onelight"  # or "onedark"
 │   ├── yabai.sh                  # yabai integration
 │   ├── mission_control.sh        # Mission control fallback
 │   └── config/                   # Config menu scripts
+│       ├── helpers.sh
 │       ├── bar_style.sh
 │       ├── bar_background.sh
+│       ├── theme.sh
 │       ├── icon_size.sh
 │       ├── label_size.sh
 │       ├── icon_font_family.sh
 │       ├── label_font_family.sh
 │       ├── app_icon_size.sh
-│       ├── weather_location.sh
 │       ├── clock_format.sh
 │       ├── calendar_format.sh
-│       └── theme.sh
+│       ├── weather_location.sh
+│       ├── netstat_graph.sh
+│       ├── netstat_speed.sh
+│       ├── config_visible.sh
+│       ├── widgets_right.sh
+│       └── reset.sh
 ├── events/                       # Event handlers
 │   ├── caffeinate_toggle.sh      # Caffeinate toggle handler
 │   ├── volume_click.sh           # Volume click handler
 │   └── system_woke.sh            # System wake handler
 ├── icons/                        # Icon definitions
 │   ├── apps.sh                   # App icon mappings
-│   └── system.json               # System icons (Nerd Fonts)
+│   ├── widget.sh                 # Widget icons
+│   └── weather.sh                # Weather icons
 ├── tokens/                       # Design tokens
 │   ├── colors.sh                 # Color definitions
 │   ├── helpers.sh                # Color helper functions
 │   └── themes/                   # Theme files
 │       ├── onedark.sh
-│       └── onelight.sh
+│       ├── onelight.sh
+│       ├── nord.sh
+│       ├── tokyonight.sh
+│       ├── githubdark.sh
+│       ├── githublight.sh
+│       ├── gruvboxlight.sh
+│       ├── blossomlight.sh
+│       ├── ayudark.sh
+│       └── ayulight.sh
 └── scripts/                      # Installation scripts
     ├── install.sh                # Installation script
     └── update.sh                 # Update script
