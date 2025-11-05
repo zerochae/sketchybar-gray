@@ -9,3 +9,9 @@ disable=SC1090
 
 # Disable SC2206: Word splitting is intentional for subscribe events
 disable=SC2206
+
+# Disable SC2178: nameref 사용 시 발생하는 false positive
+disable=SC2178
+
+# Disable SC2179: nameref에 append 시 발생하는 경고
+disable=SC2179

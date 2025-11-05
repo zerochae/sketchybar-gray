@@ -13,7 +13,5 @@ sketchybar --add item caffeinate.icon right \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_LABEL_PADDING_RIGHT" \
   script="$SBAR_PLUGIN_DIR/caffeinate.sh" \
-  click_script="$SBAR_PLUGIN_DIR/caffeinate_toggle.sh" \
+  click_script="$SBAR_EVENT_DIR/caffeinate_toggle.sh" \
   --subscribe caffeinate.icon caffeinate_update
-
-add_bracket_item "caffeinate" "$SBAR_COLOR_CAFFEINATE" caffeinate.icon

@@ -5,7 +5,7 @@
 : "${SID:=}"
 
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
-source "$CONFIG_DIR/env.sh"
+source "$CONFIG_DIR/core/env.sh"
 source "$CONFIG_DIR/plugins/icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
 
@@ -36,7 +36,19 @@ else
   LABEL_DRAWING=off
 fi
 
-if [ "$THEME_TYPE" = "light" ]; then
+if [ "$SBAR_BAR_STYLE" = "compact" ]; then
+  if [ "$SELECTED" = "true" ]; then
+    ICON_COLOR="$SBAR_COLOR_SPACE_BORDER"
+    LABEL_COLOR="$SBAR_COLOR_SPACE_BORDER"
+    ICON_SIZE="$SBAR_APP_ICON_FONT_SIZE"
+    BG_DRAWING="off"
+  else
+    ICON_COLOR="$COLOR_LIGHT_GRAY"
+    LABEL_COLOR="$COLOR_LIGHT_GRAY"
+    ICON_SIZE="$SBAR_APP_ICON_FONT_SIZE"
+    BG_DRAWING="off"
+  fi
+elif [ "$THEME_TYPE" = "light" ]; then
   if [ "$SELECTED" = "true" ]; then
     ICON_COLOR="$COLOR_BLACK"
     LABEL_COLOR="$COLOR_BLACK"
@@ -45,6 +57,7 @@ if [ "$THEME_TYPE" = "light" ]; then
     ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE + 0.5")
     BG_HEIGHT=$(calc "$BG_HEIGHT + 0.5")
     SHADOW_DRAWING="on"
+    BG_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
@@ -53,6 +66,7 @@ if [ "$THEME_TYPE" = "light" ]; then
     ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE - 1.5")
     BG_HEIGHT=$(calc "$BG_HEIGHT - 1.5")
     SHADOW_DRAWING="off"
+    BG_DRAWING="on"
   fi
 else
   if [ "$SELECTED" = "true" ]; then
@@ -63,6 +77,7 @@ else
     ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE + 0.5")
     BG_HEIGHT=$(calc "$BG_HEIGHT + 0.5")
     SHADOW_DRAWING="on"
+    BG_DRAWING="on"
   else
     ICON_COLOR="$COLOR_LIGHT_GRAY"
     LABEL_COLOR="$COLOR_LIGHT_GRAY"
@@ -71,10 +86,21 @@ else
     ICON_SIZE=$(calc "$SBAR_APP_ICON_FONT_SIZE - 1.5")
     BG_HEIGHT=$(calc "$BG_HEIGHT - 1.5")
     SHADOW_DRAWING="off"
+    BG_DRAWING="on"
   fi
 fi
 
-if [ "$SELECTED" = "true" ]; then
+if [ "$SBAR_BAR_STYLE" = "compact" ]; then
+  sketchybar --set "$NAME" \
+    icon="$ICONS" \
+    icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \
+    icon.padding_left="$ICON_PADDING" \
+    icon.padding_right="$ICON_PADDING" \
+    icon.color="$ICON_COLOR" \
+    label.drawing="$LABEL_DRAWING" \
+    label.color="$LABEL_COLOR" \
+    background.drawing=off
+elif [ "$SELECTED" = "true" ]; then
   sketchybar --set "$NAME" \
     icon="$ICONS" \
     icon.font="${SBAR_APP_ICON_FONT:-sketchybar-app-font}:Regular:$ICON_SIZE" \

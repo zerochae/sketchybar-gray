@@ -1,74 +1,16 @@
 #!/usr/bin/env bash
 
-# ---------- assets, env ----------
 export SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
 export SBAR_ITEM_DIR="$CONFIG_DIR/items"
+export SBAR_EVENT_DIR="$CONFIG_DIR/events"
 
-# ---------- load environment variables ----------
-source "$CONFIG_DIR/env.sh"
+source "$CONFIG_DIR/core/env.sh"
+source "$CONFIG_DIR/core/init_widgets.sh"
+source "$CONFIG_DIR/core/bar_defaults.sh"
+source "$CONFIG_DIR/core/loader.sh"
+source "$CONFIG_DIR/core/load_widgets.sh"
+source "$CONFIG_DIR/core/styles.sh"
 
-# ========== Widget List ==========
-if [ -n "$SBAR_WIDGETS_LEFT_ENABLED" ]; then
-  read -ra SBAR_WIDGETS_LEFT <<< "$SBAR_WIDGETS_LEFT_ENABLED"
-else
-  export SBAR_WIDGETS_LEFT=(
-    "space"
-  )
-fi
-
-if [ -n "$SBAR_WIDGETS_CENTER_ENABLED" ]; then
-  read -ra SBAR_WIDGETS_CENTER <<< "$SBAR_WIDGETS_CENTER_ENABLED"
-else
-  export SBAR_WIDGETS_CENTER=(
-    "front_app"
-  )
-fi
-
-if [ -n "$SBAR_WIDGETS_RIGHT_ENABLED" ]; then
-  read -ra SBAR_WIDGETS_RIGHT <<< "$SBAR_WIDGETS_RIGHT_ENABLED"
-else
-  export SBAR_WIDGETS_RIGHT=(
-    "clock"
-    "weather"
-    "caffeinate"
-    "volume"
-    "battery"
-    "disk"
-    "ram"
-    "cpu"
-    "kakaotalk"
-    "config"
-  )
-fi
-
-export SBAR_AUTO_INSERT_SPACER=true
-
-# ---------- default & bar ----------
-sketchybar \
-  --default \
-  icon.font="$SBAR_ICON_FONT_FACE_REGULAR:$SBAR_ICON_FONT_SIZE" \
-  label.font="$SBAR_LABEL_FONT_FACE_REGULAR:$SBAR_LABEL_FONT_SIZE" \
-  icon.color="$SBAR_DEFAULT_ICON_COLOR" \
-  label.color="$SBAR_DEFAULT_LABEL_COLOR" \
-  --bar \
-  position="$SBAR_BAR_POSITION" \
-  height="$SBAR_BAR_HEIGHT" \
-  color="$SBAR_BAR_COLOR"
-
-# ---------- load widgets ----------
-source "$CONFIG_DIR/loader.sh"
-
-load_widgets "${SBAR_WIDGETS_LEFT[@]}"
-load_widgets "${SBAR_WIDGETS_CENTER[@]}"
-load_widgets "${SBAR_WIDGETS_RIGHT[@]}"
-
-# ---------- update ----------
 sketchybar --update
 
-# ---------- wake from sleep ----------
-sketchybar --add event system_woke \
-  --add item system_woke left \
-  --set system_woke \
-  drawing=off \
-  script="$SBAR_PLUGIN_DIR/system_woke.sh" \
-  --subscribe system_woke system_woke
+source "$CONFIG_DIR/core/events.sh"

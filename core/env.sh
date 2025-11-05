@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 
-# ========== Environment Variables ==========
-# This file is sourced by both sketchybarrc and plugins
-# to ensure consistent environment variable access
-
-# ---------- user config override (load early) ----------
 USER_CONFIG="${CONFIG_DIR:-$HOME/.config/sketchybar}/user.sketchybarrc"
 if [ -f "$USER_CONFIG" ]; then
   source "$USER_CONFIG"
 fi
 
-# ---------- theme ----------
 export SBAR_THEME="${SBAR_THEME:-onedark}"
 THEME_FILE="${CONFIG_DIR:-$HOME/.config/sketchybar}/tokens/themes/$SBAR_THEME.sh"
 if [ -f "$THEME_FILE" ]; then
@@ -19,16 +13,15 @@ else
   source "${CONFIG_DIR:-$HOME/.config/sketchybar}/tokens/themes/onedark.sh"
 fi
 
-# ========== Default Colors ==========
 export SBAR_DEFAULT_ICON_COLOR="${SBAR_DEFAULT_ICON_COLOR:-$COLOR_WHITE}"
 export SBAR_DEFAULT_LABEL_COLOR="${SBAR_DEFAULT_LABEL_COLOR:-$COLOR_WHITE}"
 export SBAR_BAR_COLOR="${SBAR_BAR_COLOR:-$COLOR_TRANSPARENT}"
 
-# ========== Widget Colors (defaults) ==========
 export SBAR_COLOR_CLOCK="${SBAR_COLOR_CLOCK:-$COLOR_YELLOW}"
 export SBAR_COLOR_CALENDAR="${SBAR_COLOR_CALENDAR:-$COLOR_TANGERINE}"
 export SBAR_COLOR_WEATHER="${SBAR_COLOR_WEATHER:-$COLOR_CYAN}"
 export SBAR_COLOR_CAFFEINATE="${SBAR_COLOR_CAFFEINATE:-$COLOR_GREEN}"
+export SBAR_COLOR_CAFFEINATE_ON="${SBAR_COLOR_CAFFEINATE_ON:-$COLOR_RED}"
 export SBAR_COLOR_VOLUME="${SBAR_COLOR_VOLUME:-$COLOR_BLUE}"
 export SBAR_COLOR_BATTERY="${SBAR_COLOR_BATTERY:-$COLOR_ORANGE}"
 export SBAR_COLOR_DISK="${SBAR_COLOR_DISK:-$COLOR_RED}"
@@ -39,37 +32,34 @@ export SBAR_COLOR_KAKAOTALK="${SBAR_COLOR_KAKAOTALK:-$COLOR_YELLOW}"
 export SBAR_COLOR_FRONT_APP="${SBAR_COLOR_FRONT_APP:-$COLOR_GREEN}"
 export SBAR_COLOR_SPACE="${SBAR_COLOR_SPACE:-0xFF24242f}"
 export SBAR_COLOR_SPACE_BORDER="${SBAR_COLOR_SPACE_BORDER:-$COLOR_GREEN}"
+export SBAR_COLOR_CONFIG="${SBAR_COLOR_CONFIG:-$COLOR_BLUE}"
 
-# ========== Fonts ==========
 export SBAR_LABEL_FONT_FAMILY="${SBAR_LABEL_FONT_FAMILY:-SpaceMono Nerd Font Mono}"
 export SBAR_ICON_FONT_FAMILY="${SBAR_ICON_FONT_FAMILY:-$SBAR_LABEL_FONT_FAMILY}"
-
 export SBAR_ICON_FONT_FACE_REGULAR="${SBAR_ICON_FONT_FAMILY}:Regular"
 export SBAR_ICON_FONT_FACE_BOLD="${SBAR_ICON_FONT_FAMILY}:Bold"
 export SBAR_LABEL_FONT_FACE_REGULAR="${SBAR_LABEL_FONT_FAMILY}:Regular"
 export SBAR_LABEL_FONT_FACE_BOLD="${SBAR_LABEL_FONT_FAMILY}:Bold"
-
 export SBAR_ICON_FONT_SIZE="${SBAR_ICON_FONT_SIZE:-18.0}"
 export SBAR_LABEL_FONT_SIZE="${SBAR_LABEL_FONT_SIZE:-12.0}"
 
 export SBAR_APP_ICON_FONT="${SBAR_APP_ICON_FONT:-sketchybar-app-font}"
 export SBAR_APP_ICON_FONT_SIZE="${SBAR_APP_ICON_FONT_SIZE:-13.5}"
 
-# ========== Bar Settings ==========
 export SBAR_BAR_HEIGHT=56
 export SBAR_BAR_POSITION="top"
 export SBAR_BAR_BACKGROUND="${SBAR_BAR_BACKGROUND:-transparent}"
+export SBAR_BAR_STYLE="${SBAR_BAR_STYLE:-block}"
+export SBAR_COMPACT_BG_COLOR="${SBAR_COMPACT_BG_COLOR:-$COLOR_BG2}"
 if [ "$SBAR_BAR_BACKGROUND" = "bg1" ]; then
   export SBAR_BAR_COLOR="$COLOR_BG1"
 else
   export SBAR_BAR_COLOR="$COLOR_TRANSPARENT"
 fi
 
-# ========== Item Settings ==========
 export SBAR_ITEM_BG_HEIGHT=24
 export SBAR_ITEM_BG_CORNER_RADIUS=4
 export SBAR_ITEM_BG_BORDER_WIDTH=1
-
 export SBAR_ITEM_ICON_PADDING_LEFT=8
 export SBAR_ITEM_ICON_PADDING_RIGHT=4
 export SBAR_ITEM_LABEL_PADDING_LEFT=0
@@ -84,7 +74,6 @@ export SBAR_ITEM_UPDATE_FREQ_DEFAULT=10
 export SBAR_ITEM_UPDATE_FREQ_FAST=2
 export SBAR_ITEM_UPDATE_FREQ_SLOW=30
 
-# ========== Display Options ==========
 export SBAR_CLOCK_FORMAT="${SBAR_CLOCK_FORMAT:-MM/DD HH:mm}"
 export SBAR_CALENDAR_FORMAT="${SBAR_CALENDAR_FORMAT:-YYYY-MM-DD}"
 export SBAR_NETSTAT_SHOW_GRAPH="${SBAR_NETSTAT_SHOW_GRAPH:-true}"

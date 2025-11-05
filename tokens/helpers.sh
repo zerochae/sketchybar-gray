@@ -13,8 +13,12 @@ generate_alpha_variants() {
   local rgb="${color:4}"
 
   # Export all alpha variants using eval to handle variable names properly
-  eval "export COLOR_${name}='0xFF${rgb}'"      # 100%
-  eval "export COLOR_${name}_75='0xBF${rgb}'"   # 75%
-  eval "export COLOR_${name}_50='0x80${rgb}'"   # 50%
-  eval "export COLOR_${name}_25='0x40${rgb}'"   # 25%
+  eval "export COLOR_${name}='0xFF${rgb}'"    # 100%
+  eval "export COLOR_${name}_75='0xBF${rgb}'" # 75%
+  eval "export COLOR_${name}_50='0x80${rgb}'" # 50%
+  eval "export COLOR_${name}_25='0x40${rgb}'" # 25%
+}
+
+get_badge_label_color() {
+  echo "0xFFFFFFFF"
 }

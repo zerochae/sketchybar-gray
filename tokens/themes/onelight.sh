@@ -3,7 +3,7 @@
 # One Light Theme
 # https://github.com/joshdick/onedark.vim
 
-source "$CONFIG_DIR/tokens/helpers.sh"
+source "${CONFIG_DIR:-$HOME/.config/sketchybar}/tokens/helpers.sh"
 
 export THEME_TYPE="light"
 

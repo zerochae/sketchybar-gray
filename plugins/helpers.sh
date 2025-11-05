@@ -5,20 +5,6 @@ calc() {
   awk "BEGIN {print $expression}"
 }
 
-add_bracket_item() {
-  local name=$1
-  local bg_color=$2
-  local items=("${@:3}")
-
-  sketchybar --add bracket "$name" "${items[@]}" \
-    --set "$name" \
-    background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
-    background.height="$SBAR_ITEM_BG_HEIGHT" \
-    background.border_width="$SBAR_ITEM_BG_BORDER_WIDTH" \
-    background.color="$bg_color" \
-    background.drawing=on
-}
-
 add_item_with_icon_label() {
   local base_name=$1
   local position=$2

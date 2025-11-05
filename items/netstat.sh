@@ -82,4 +82,3 @@ sketchybar --add item netstat.up.icon right \
 
 BRACKET_ITEMS+=("netstat.up.icon")
 
-add_bracket_item "netstat" "$SBAR_COLOR_NETSTAT" "${BRACKET_ITEMS[@]}"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/env.sh"
+source "$CONFIG_DIR/core/env.sh"
 
 format="${SBAR_CALENDAR_FORMAT:-YYYY-MM-DD}"
 

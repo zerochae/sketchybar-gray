@@ -3,7 +3,7 @@
 # One Dark Theme
 # https://github.com/joshdick/onedark.vim
 
-source "$CONFIG_DIR/tokens/helpers.sh"
+source "${CONFIG_DIR:-$HOME/.config/sketchybar}/tokens/helpers.sh"
 
 export THEME_TYPE="dark"
 
@@ -12,7 +12,7 @@ export COLOR_LIGHT_GRAY="0xFF9ba2af"
 export COLOR_DARK_GRAY="0xFF565c64"
 
 export COLOR_BG1="0xFF1a1a26"
-export COLOR_BG2="0xFF1F1F2B"
+export COLOR_BG2="0xFF2A2A44"
 
 generate_alpha_variants "WHITE" "0xFFabb2bf"
 generate_alpha_variants "BLACK" "0xFF282c34"

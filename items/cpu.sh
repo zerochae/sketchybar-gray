@@ -46,4 +46,3 @@ sketchybar --add item cpu.icon right \
 
 BRACKET_ITEMS+=("cpu.icon")
 
-add_bracket_item "cpu" "$SBAR_COLOR_CPU" "${BRACKET_ITEMS[@]}"

@@ -8,15 +8,8 @@ PID_FILE="/tmp/sketchybar_caffeinate.pid"
 
 if [ -f "$PID_FILE" ]; then
   PID=$(cat "$PID_FILE")
-  if kill -0 "$PID" 2>/dev/null && ps -p "$PID" -o comm= | grep -q "caffeinate"; then
-    ICON=$(get_widget_icon "coffee_off")
-    if [ "$SBAR_BAR_STYLE" = "compact" ]; then
-      ICON_COLOR="$SBAR_COLOR_CAFFEINATE_ON"
-    else
-      ICON_COLOR="$COLOR_WHITE"
-      BG_COLOR="$COLOR_RED_75"
-    fi
-  else
+  if kill -0 "$PID" 2>/dev/null; then
+    kill "$PID"
     rm "$PID_FILE"
     ICON=$(get_widget_icon "coffee_on")
     if [ "$SBAR_BAR_STYLE" = "compact" ]; then
@@ -25,14 +18,27 @@ if [ -f "$PID_FILE" ]; then
       ICON_COLOR="$COLOR_BLACK"
       BG_COLOR="$COLOR_GREEN_75"
     fi
+  else
+    rm "$PID_FILE"
+    caffeinate -d &
+    echo $! >"$PID_FILE"
+    ICON=$(get_widget_icon "coffee_off")
+    if [ "$SBAR_BAR_STYLE" = "compact" ]; then
+      ICON_COLOR="$SBAR_COLOR_CAFFEINATE_ON"
+    else
+      ICON_COLOR="$COLOR_WHITE"
+      BG_COLOR="$COLOR_RED_75"
+    fi
   fi
 else
-  ICON=$(get_widget_icon "coffee_on")
+  caffeinate -d &
+  echo $! >"$PID_FILE"
+  ICON=$(get_widget_icon "coffee_off")
   if [ "$SBAR_BAR_STYLE" = "compact" ]; then
-    ICON_COLOR="$SBAR_COLOR_CAFFEINATE"
+    ICON_COLOR="$SBAR_COLOR_CAFFEINATE_ON"
   else
-    ICON_COLOR="$COLOR_BLACK"
-    BG_COLOR="$COLOR_GREEN_75"
+    ICON_COLOR="$COLOR_WHITE"
+    BG_COLOR="$COLOR_RED_75"
   fi
 fi
 

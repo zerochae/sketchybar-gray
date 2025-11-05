@@ -46,4 +46,3 @@ sketchybar --add item ram.icon right \
 
 BRACKET_ITEMS+=("ram.icon")
 
-add_bracket_item "ram" "$SBAR_COLOR_RAM" "${BRACKET_ITEMS[@]}"

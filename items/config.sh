@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/core/env.sh"
 source "$CONFIG_DIR/tokens/colors.sh"
 source "$CONFIG_DIR/plugins/icon.sh"
 
@@ -8,8 +9,10 @@ CONFIG_ICON=$(get_widget_icon "config")
 if [ "$SBAR_CONFIG_VISIBLE" = "false" ]; then
   CONFIG_ICON_COLOR="$COLOR_TRANSPARENT"
   CONFIG_BG_DRAWING="off"
+  CONFIG_BG_COLOR="$COLOR_TRANSPARENT"
 else
-  CONFIG_ICON_COLOR="$COLOR_BLACK"
+  CONFIG_ICON_COLOR="$SBAR_COLOR_CONFIG"
+  CONFIG_BG_COLOR="$SBAR_COLOR_CONFIG"
   CONFIG_BG_DRAWING="on"
 fi
 
@@ -20,7 +23,7 @@ sketchybar --add item config right \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right=6 \
   label.drawing=off \
-  background.color="$COLOR_BLUE" \
+  background.color="$CONFIG_BG_COLOR" \
   background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
   background.height="$SBAR_ITEM_BG_HEIGHT" \
   background.border_width=0 \
@@ -120,6 +123,15 @@ sketchybar --add item config.bar_background popup.config \
   label="Bar Background" \
   label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   click_script="$SBAR_PLUGIN_DIR/config/bar_background.sh"
+
+sketchybar --add item config.bar_style popup.config \
+  --set config.bar_style \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Bar Style" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  click_script="$SBAR_PLUGIN_DIR/config/bar_style.sh"
 
 sketchybar --add item config.clock_format popup.config \
   --set config.clock_format \

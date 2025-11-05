@@ -21,6 +21,5 @@ sketchybar --add item volume.label right \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"
 
-add_bracket_item "volume" "$SBAR_COLOR_VOLUME" volume.label volume.icon
 
-sketchybar --set volume click_script="$SBAR_PLUGIN_DIR/volume_click.sh"
+sketchybar --set volume click_script="$SBAR_EVENT_DIR/volume_click.sh"

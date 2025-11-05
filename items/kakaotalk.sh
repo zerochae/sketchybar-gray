@@ -9,7 +9,7 @@ sketchybar --add item kakaotalk.badge right \
   --set kakaotalk.badge \
   label.drawing=off \
   label.font="$SBAR_LABEL_FONT_FACE_BOLD:7.0" \
-  label.color="$COLOR_BLACK" \
+  label.color="0xFFFFFFFF" \
   label.padding_left=4 \
   label.padding_right=4 \
   background.color="$COLOR_RED" \
@@ -28,4 +28,3 @@ sketchybar --add item kakaotalk.icon right \
   script="$SBAR_PLUGIN_DIR/kakaotalk.sh" \
   click_script="open -a KakaoTalk"
 
-add_bracket_item "kakaotalk" "$SBAR_COLOR_KAKAOTALK" "kakaotalk.icon"

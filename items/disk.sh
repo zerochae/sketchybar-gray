@@ -20,4 +20,3 @@ sketchybar --add item disk.percent right \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT"
 
-add_bracket_item "disk" "$SBAR_COLOR_DISK" disk.percent disk.icon

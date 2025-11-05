@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/core/env.sh"
 source "$CONFIG_DIR/tokens/colors.sh"
 
 APP_NAME="KakaoTalk"
@@ -14,8 +15,7 @@ fi
 
 BADGE_RAW=$(lsappinfo -all list | grep -A 1 "\"$APP_NAME\"" | grep "StatusLabel" | sed 's/.*"label"="\([^"]*\)".*/\1/')
 
-sketchybar --set kakaotalk.icon drawing=on icon.color="$COLOR_BLACK"
-sketchybar --set kakaotalk drawing=on background.color="$COLOR_YELLOW"
+sketchybar --set kakaotalk.icon drawing=on
 
 if [ -n "$BADGE_RAW" ]; then
   sketchybar --set kakaotalk.badge \
