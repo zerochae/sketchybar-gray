@@ -29,7 +29,7 @@ sketchybar --add item config right \
   background.border_width=0 \
   background.drawing="$CONFIG_BG_DRAWING" \
   popup.align=right \
-  popup.height=30 \
+  popup.height=32 \
   popup.padding_left="$SBAR_POPUP_PADDING_LEFT" \
   popup.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
   popup.y_offset=2 \
@@ -199,7 +199,7 @@ sketchybar --add item config.widgets_right popup.config \
 sketchybar --add item config.separator3 popup.config \
   --set config.separator3 \
   icon= \
-  label="────────────" \
+  label="────────────────────────" \
   label.color="$COLOR_DARK_GRAY" \
   click_script=""
 
