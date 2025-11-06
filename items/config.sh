@@ -203,6 +203,17 @@ sketchybar --add item config.separator3 popup.config \
   label.color="$COLOR_DARK_GRAY" \
   click_script=""
 
+sketchybar --add item config.open_config popup.config \
+  --set config.open_config \
+  icon= \
+  icon.padding_left="$SBAR_POPUP_ICON_PADDING_LEFT" \
+  icon.padding_right="$SBAR_POPUP_ICON_PADDING_RIGHT" \
+  label="Open Config" \
+  label.padding_right="$SBAR_POPUP_PADDING_RIGHT" \
+  icon.color="$COLOR_BLUE" \
+  label.color="$COLOR_BLUE" \
+  click_script="$SBAR_PLUGIN_DIR/config/open_config.sh"
+
 sketchybar --add item config.reload popup.config \
   --set config.reload \
   icon= \
