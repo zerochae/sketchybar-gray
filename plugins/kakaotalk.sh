@@ -13,11 +13,11 @@ if [ "$IS_RUNNING" = "false" ]; then
   exit 0
 fi
 
-BADGE_RAW=$(lsappinfo -all list | grep -A 1 "\"$APP_NAME\"" | grep "StatusLabel" | sed 's/.*"label"="\([^"]*\)".*/\1/')
+BADGE_RAW=$(lsappinfo -all list | grep -A 1 "\"$APP_NAME\"" | grep "StatusLabel" | sed 's/.*"label"=//; s/"//g; s/ }.*//')
 
 sketchybar --set kakaotalk.icon drawing=on
 
-if [ -n "$BADGE_RAW" ]; then
+if [ -n "$BADGE_RAW" ] && [ "$BADGE_RAW" != "0" ] && [ "$BADGE_RAW" != "kCFNULL" ]; then
   sketchybar --set kakaotalk.badge \
     drawing=on \
     label="NEW" \

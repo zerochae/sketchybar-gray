@@ -25,7 +25,7 @@ sketchybar --add item kakaotalk.icon right \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$SBAR_ITEM_ICON_PADDING_RIGHT" \
-  update_freq=5 \
+  update_freq=10 \
   script="$SBAR_PLUGIN_DIR/kakaotalk.sh" \
   click_script="open -a KakaoTalk"
 
