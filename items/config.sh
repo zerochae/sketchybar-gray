@@ -13,4 +13,4 @@ sketchybar --add item config.icon right \
   icon.color="$COLOR_BLACK" \
   icon.padding_left="$SBAR_ITEM_ICON_PADDING_LEFT" \
   icon.padding_right="$(calc "$SBAR_ITEM_LABEL_PADDING_RIGHT - 2")" \
-  click_script="$SBAR_PLUGIN_DIR/config/open_settings.sh"
+  click_script="$SBAR_EVENT_DIR/open_settings.sh"
