@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
-if [ "$SBAR_CONFIG_VISIBLE" = "true" ]; then
-  sketchybar --set config \
-    icon.color="$COLOR_BLACK" \
-    background.color="$SBAR_COLOR_CONFIG"
-fi
+sketchybar --add bracket "config" "/config/" \
+  --set "config" \
+  background.color="$SBAR_COLOR_CONFIG" \
+  background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
+  background.height="$SBAR_ITEM_BG_HEIGHT" \
+  background.border_width="$SBAR_ITEM_BG_BORDER_WIDTH" \
+  background.drawing=on
+
+sketchybar --set "/config/" icon.color="$COLOR_BLACK"
 
 sketchybar --add bracket "clock" "/clock\..*/" \
   --set "clock" \

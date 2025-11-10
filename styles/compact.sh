@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$SBAR_CONFIG_VISIBLE" = "true" ]; then
-  sketchybar --set config \
-    icon.color="$SBAR_COLOR_CONFIG" \
-    background.color="$COLOR_BG2"
-fi
-
+sketchybar --set "/config\..*/" icon.color="$SBAR_COLOR_CONFIG"
 sketchybar --set "/clock\..*/" icon.color="$SBAR_COLOR_CLOCK" label.color="$SBAR_COLOR_CLOCK"
 sketchybar --set "/calendar\..*/" icon.color="$SBAR_COLOR_CALENDAR" label.color="$SBAR_COLOR_CALENDAR"
 sketchybar --set "/weather\..*/" icon.color="$SBAR_COLOR_WEATHER" label.color="$SBAR_COLOR_WEATHER"
@@ -29,21 +24,18 @@ RIGHT_ITEMS=()
 
 for widget in "${SBAR_WIDGETS_LEFT[@]}"; do
   widget_name="${widget%% *}"
-  [ "$widget_name" = "config" ] && continue
   [ "$widget_name" = "space" ] && LEFT_ITEMS+=("/space\\..*/") && continue
   LEFT_ITEMS+=("/${widget_name}\\.icon/" "/${widget_name}\\.label/" "/${widget_name}\\.name/" "/${widget_name}\\.percent/" "/${widget_name}\\.graph/")
 done
 
 for widget in "${SBAR_WIDGETS_CENTER[@]}"; do
   widget_name="${widget%% *}"
-  [ "$widget_name" = "config" ] && continue
   [ "$widget_name" = "space" ] && CENTER_ITEMS+=("/space\\..*/") && continue
   CENTER_ITEMS+=("/${widget_name}\\.icon/" "/${widget_name}\\.label/" "/${widget_name}\\.name/" "/${widget_name}\\.percent/" "/${widget_name}\\.graph/")
 done
 
 for widget in "${SBAR_WIDGETS_RIGHT[@]}"; do
   widget_name="${widget%% *}"
-  [ "$widget_name" = "config" ] && continue
   [ "$widget_name" = "space" ] && RIGHT_ITEMS+=("/space\\..*/") && continue
   RIGHT_ITEMS+=("/${widget_name}\\.icon/" "/${widget_name}\\.label/" "/${widget_name}\\.name/" "/${widget_name}\\.percent/" "/${widget_name}\\.graph/")
 done
