@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2086
 
-# Sketchybar environment variables
-: "${SBAR_PLUGIN_DIR:=}"
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+SBAR_PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+source "$CONFIG_DIR/core/env.sh"
 
 if command -v yabai >/dev/null 2>&1; then
   source "$SBAR_PLUGIN_DIR/yabai.sh"
-  SUBSCRIBE_EVENTS="front_app_switched space_change"
+  SPACE_EVENTS="front_app_switched space_change yabai_window_focus"
 else
   source "$SBAR_PLUGIN_DIR/mission_control.sh"
-  SUBSCRIBE_EVENTS="front_app_switched"
+  SPACE_EVENTS="front_app_switched"
 fi
 
 workspaces=$(get_spaces)
@@ -40,7 +43,7 @@ for sid in $workspaces; do
       padding_right=4 \
       script="$SBAR_PLUGIN_DIR/space.sh" \
       click_script="$CLICK_SCRIPT" \
-      --subscribe "space.$sid" "$SUBSCRIBE_EVENTS"
+      --subscribe "space.$sid" $SPACE_EVENTS
   else
     sketchybar --add space "space.$sid" left \
       --set "space.$sid" \
@@ -58,7 +61,7 @@ for sid in $workspaces; do
       padding_right=4 \
       script="$SBAR_PLUGIN_DIR/space.sh" \
       click_script="$CLICK_SCRIPT" \
-      --subscribe "space.$sid" "$SUBSCRIBE_EVENTS"
+      --subscribe "space.$sid" $SPACE_EVENTS
   fi
 done
 
