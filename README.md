@@ -8,6 +8,9 @@ A customized macOS menu bar configuration featuring app icons, system status, we
 
 ## Settings App
 
+
+<img width="723" height="566" alt="SCR-20251209-njyy" src="https://github.com/user-attachments/assets/c4b1f881-c5e5-414a-b4b5-8aac6ee43896" />
+
 The easiest way to configure Sketchybar Gray is through the Settings App ([sketchybar-gray-ui](https://github.com/zerochae/sketchybar-gray-ui)).
 
 **How to open:**
