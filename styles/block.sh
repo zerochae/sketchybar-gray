@@ -62,6 +62,16 @@ sketchybar --add bracket "volume" "/volume\..*/" \
 
 sketchybar --set "/volume\..*/" icon.color="$COLOR_BLACK" label.color="$COLOR_BLACK"
 
+sketchybar --add bracket "bluetooth" "/bluetooth\..*/" \
+  --set "bluetooth" \
+  background.color="$SBAR_COLOR_BLUETOOTH" \
+  background.corner_radius="$SBAR_ITEM_BG_CORNER_RADIUS" \
+  background.height="$SBAR_ITEM_BG_HEIGHT" \
+  background.border_width="$SBAR_ITEM_BG_BORDER_WIDTH" \
+  background.drawing=on
+
+sketchybar --set "/volume\..*/" icon.color="$COLOR_BLACK" label.color="$COLOR_BLACK"
+
 sketchybar --add bracket "battery" "/battery\..*/" \
   --set "battery" \
   background.color="$SBAR_COLOR_BATTERY" \

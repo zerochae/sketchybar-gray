@@ -84,6 +84,12 @@ function __widget_icon_map() {
   "config")
     icon_result=""
     ;;
+  "bluetooth")
+    icon_result="󰂯"
+    ;;
+  "bluetooth_off")
+    icon_result="󰂲"
+    ;;
   "weather_clear_day")
     icon_result=""
     ;;

@@ -9,6 +9,7 @@ sketchybar --set "/calendar\..*/" icon.color="$SBAR_COLOR_CALENDAR" label.color=
 sketchybar --set "/weather\..*/" icon.color="$SBAR_COLOR_WEATHER" label.color="$SBAR_COLOR_WEATHER"
 sketchybar --set "/caffeinate\..*/" icon.color="$SBAR_COLOR_CAFFEINATE"
 sketchybar --set "/volume\..*/" icon.color="$SBAR_COLOR_VOLUME" label.color="$SBAR_COLOR_VOLUME"
+sketchybar --set "/bluetooth\..*/" icon.color="$SBAR_COLOR_BLUETOOTH" label.color="$SBAR_COLOR_BLUETOOTH"
 sketchybar --set "/battery\..*/" icon.color="$SBAR_COLOR_BATTERY" label.color="$SBAR_COLOR_BATTERY"
 sketchybar --set "/disk\..*/" icon.color="$SBAR_COLOR_DISK" label.color="$SBAR_COLOR_DISK"
 sketchybar --set "/ram\..*/" icon.color="$SBAR_COLOR_RAM" label.color="$SBAR_COLOR_RAM"

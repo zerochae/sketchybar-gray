@@ -4,7 +4,6 @@
 : "${NAME:=}"
 : "${SID:=}"
 
-CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 source "$CONFIG_DIR/core/env.sh"
 source "$CONFIG_DIR/plugins/icon.sh"
 source "$CONFIG_DIR/plugins/helpers.sh"
