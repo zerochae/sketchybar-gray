@@ -6,6 +6,21 @@
 
 A customized macOS menu bar configuration featuring app icons, system status, weather, and more.
 
+## Settings App
+
+The easiest way to configure Sketchybar Gray is through the Settings App ([sketchybar-gray-ui](https://github.com/zerochae/sketchybar-gray-ui)).
+
+**How to open:**
+- Click on the empty space to the left of the right-side widgets
+- Or click the config widget (gear icon) if enabled
+
+The Settings App provides a GUI for:
+- Theme selection
+- Bar style (block/compact)
+- Widget visibility
+- Font settings
+- And more...
+
 ## Dependencies
 
 ### Required
@@ -229,6 +244,7 @@ Multiple themes are available:
 - `nord` - Nord color scheme
 - `tokyonight` - Tokyo Night color scheme
 - `githubdark` - GitHub Dark color scheme
+- `gruvboxdark` - Gruvbox Dark color scheme
 - `ayudark` - Ayu Dark color scheme
 
 **Light Themes**:
