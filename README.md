@@ -15,7 +15,12 @@ The easiest way to configure Sketchybar Gray is through the Settings App ([sketc
 
 **How to open:**
 - Click on the empty space to the left of the right-side widgets
+> <img width="613" height="60" alt="image" src="https://github.com/user-attachments/assets/813a4c5a-5ffa-4260-8d3e-3510ea25d2c6" />
+
+
 - Or click the config widget (gear icon) if enabled
+> <img width="613" height="49" alt="image" src="https://github.com/user-attachments/assets/e29de62e-8de7-4b5c-9118-fd4d19cdae54" />
+
 
 The Settings App provides a GUI for:
 - Theme selection
